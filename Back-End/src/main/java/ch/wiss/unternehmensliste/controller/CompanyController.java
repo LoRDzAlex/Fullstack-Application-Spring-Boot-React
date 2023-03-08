@@ -17,6 +17,11 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin("*")
 public class CompanyController {
 
+    /**
+     * Wire CompanyRepository
+     * @param companyRepository
+     * @return wired CompanyRepository
+     */
     private CompanyRepository companyRepository;
     @Autowired
     public void setCompanyRepository(CompanyRepository companyRepository){this.companyRepository = companyRepository;}

@@ -19,6 +19,11 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin("*")
 public class ContactController {
 
+    /**
+     * Wire ContactRepository
+     * @param contactRepository
+     * @return wired ContactRepository
+     */
     private ContactRepository contactRepository;
     @Autowired
     public void setContactRepository(ContactRepository contactRepository) {
