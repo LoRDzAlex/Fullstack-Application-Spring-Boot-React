@@ -1,5 +1,7 @@
 package ch.wiss.unternehmensliste.service;
 
+import ch.wiss.unternehmensliste.model.Role;
+import ch.wiss.unternehmensliste.model.User;
 import ch.wiss.unternehmensliste.model.UserDetailsImpl;
 import ch.wiss.unternehmensliste.model.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
