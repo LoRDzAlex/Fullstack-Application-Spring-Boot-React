@@ -6,8 +6,7 @@ import ch.wiss.unternehmensliste.exception.couldnotbeupdated.ContactCouldNotBeUp
 import ch.wiss.unternehmensliste.exception.load.ContactLoadException;
 import ch.wiss.unternehmensliste.exception.notfound.ContactNotFoundException;
 import ch.wiss.unternehmensliste.model.Contact;
-import ch.wiss.unternehmensliste.model.Contact;
-import ch.wiss.unternehmensliste.model.ContactRepository;
+import ch.wiss.unternehmensliste.repository.ContactRepository;
 import org.mariadb.jdbc.message.client.ResetPacket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

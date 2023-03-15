@@ -6,7 +6,7 @@ import ch.wiss.unternehmensliste.exception.couldnotbeupdated.CompanyCouldNotBeUp
 import ch.wiss.unternehmensliste.exception.load.CompanyLoadException;
 import ch.wiss.unternehmensliste.exception.notfound.CompanyNotFoundException;
 import ch.wiss.unternehmensliste.model.Company;
-import ch.wiss.unternehmensliste.model.CompanyRepository;
+import ch.wiss.unternehmensliste.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

@@ -3,7 +3,6 @@ package ch.wiss.unternehmensliste.model;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Range;
-import org.springframework.boot.autoconfigure.batch.BatchProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -58,7 +57,7 @@ public class JobApplication {
         this.created = created;
     }
 
-    public JobApplication(String jobName, String address, Integer zip, String status, LocalDateTime created){
+    public JobApplication(String jobName, String address, Integer zip, String status, LocalDateTime created) {
         this.jobName = jobName;
         this.address = address;
         this.zip = zip;

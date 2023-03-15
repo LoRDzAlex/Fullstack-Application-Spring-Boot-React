@@ -30,7 +30,8 @@ public class Company {
         this.canton = canton;
     }
 
-    public Company (){}
+    public Company() {
+    }
 
     @Override
     public boolean equals(Object o) {

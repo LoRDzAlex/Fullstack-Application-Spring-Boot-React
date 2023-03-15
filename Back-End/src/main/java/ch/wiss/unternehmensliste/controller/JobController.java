@@ -6,6 +6,9 @@ import ch.wiss.unternehmensliste.exception.couldnotbeupdated.JobCouldNotBeUpdate
 import ch.wiss.unternehmensliste.exception.load.JobLoadException;
 import ch.wiss.unternehmensliste.exception.notfound.JobNotFoundException;
 import ch.wiss.unternehmensliste.model.*;
+import ch.wiss.unternehmensliste.repository.CompanyRepository;
+import ch.wiss.unternehmensliste.repository.ContactRepository;
+import ch.wiss.unternehmensliste.repository.JobApplicationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

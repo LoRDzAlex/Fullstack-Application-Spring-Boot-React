@@ -2,6 +2,9 @@
 package ch.wiss.unternehmensliste.service;
 
 import ch.wiss.unternehmensliste.model.*;
+import ch.wiss.unternehmensliste.repository.CompanyRepository;
+import ch.wiss.unternehmensliste.repository.ContactRepository;
+import ch.wiss.unternehmensliste.repository.JobApplicationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

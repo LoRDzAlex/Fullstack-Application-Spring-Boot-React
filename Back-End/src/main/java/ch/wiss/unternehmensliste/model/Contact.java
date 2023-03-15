@@ -38,7 +38,8 @@ public class Contact {
         this.email = email;
     }
 
-    public Contact(){}
+    public Contact() {
+    }
 
     @Override
     public boolean equals(Object o) {
