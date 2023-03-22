@@ -9,7 +9,8 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import FormCreateDialog from "./FormCreateDialog";
 import {IconButton} from "@mui/material";
 
-export default function Appbar() {  
+
+export default function Appbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -27,3 +28,4 @@ export default function Appbar() {
     </Box>
   );
 }
+
