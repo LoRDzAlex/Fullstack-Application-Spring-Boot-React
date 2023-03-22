@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import FormUpdateContactDialog from "./FormUpdateContactDialog"
+import FormUpdateContactDialog from "../update/FormUpdateContactDialog"
 
 export const ContactList = ({id, gender, contactName, tel, email, expanded}) => {
 

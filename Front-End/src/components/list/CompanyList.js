@@ -9,7 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import FormUpdateCompanyDialog from "./FormUpdateCompanyDialog";
+import FormUpdateCompanyDialog from "../update/FormUpdateCompanyDialog";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ContactList from "./ContactList";
 

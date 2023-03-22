@@ -7,10 +7,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import FormUpdateDialog from "./FormUpdateDialog";
+import FormUpdateDialog from "../update/FormUpdateDialog";
 import CompanyList from "./CompanyList";
-import styles from "./table.css"
-import JobDelete from "./JobDelete";
+import styles from "../css/table.css"
+import JobDelete from "../delete/JobDelete";
 
 
 export const JobList = () => {
