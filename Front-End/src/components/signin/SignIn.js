@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
+import AuthService from "../api/auth/auth.service";
 
 function Copyright(props) {
     return (
@@ -34,23 +35,25 @@ export default function SignIn() {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
-    const handleSubmit = (event) =>{
+    const [authorized, setAuthorized] = useState(false);
+    const handleSubmit = (event) => {
         event.preventDefault();
-        fetch(`http://localhost:8080/api/auth/signin`, {
-            method: 'POST',
-            redirect: 'follow',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
+        AuthService.login(username, password).then(
+            () => {
+                navigate('/dashboard');
+                setAuthorized(true);
+                window.location.reload();
             },
-            body: JSON.stringify({"username": username,"password":password})
-        }).then(res => {
-            return console.log(res)
-        }).then(
-            (error) => {setError(error)}
-        )
-        return console.log("Success")
-    }
+            (error) => {
+                const resMessage =
+                    (error.response &&
+                        error.response.data &&
+                        error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+                setError(resMessage);
+            });
+    };
 
     return (
         <ThemeProvider theme={theme}>

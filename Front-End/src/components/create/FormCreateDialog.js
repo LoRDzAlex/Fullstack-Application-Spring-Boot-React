@@ -8,6 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import {DialogContentText, IconButton} from "@mui/material";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import {useState} from "react";
+import {getCurrentUserToken} from "../api/auth/auth.service";
 
 export default function FormCreateDialog() {
     const [open, setOpen] = React.useState(false);
@@ -40,6 +41,7 @@ export default function FormCreateDialog() {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + getCurrentUserToken(),
             },
             body: JSON.stringify({"jobName": jobName,"address": address,"zip" :zip,"status" : status,"companyName": companyname,"website" : website,"canton" : canton,"gender" : gender,"fullname" : fullname,"tel" : tel, "email" : email})
         }).then(res => {

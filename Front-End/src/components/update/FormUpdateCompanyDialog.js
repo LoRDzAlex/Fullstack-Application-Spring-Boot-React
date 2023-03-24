@@ -8,6 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import EditIcon from "@mui/icons-material/Edit";
 import {IconButton} from "@mui/material";
 import {useState} from "react";
+import {getCurrentUserToken} from "../api/auth/auth.service";
 
 
 export const FormUpdateCompanyDialog = ({id, companyName, website, canton}) =>{
@@ -32,6 +33,7 @@ export const FormUpdateCompanyDialog = ({id, companyName, website, canton}) =>{
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + getCurrentUserToken(),
             },
             body: JSON.stringify({"id": id, "companyName": companyName,"website": website,"canton" :canton})
         }).then(res => {

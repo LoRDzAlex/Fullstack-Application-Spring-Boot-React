@@ -6,6 +6,7 @@ import Layout from "./components/Layout";
 import FormUpdateDialog from "./components/update/FormUpdateDialog";
 import SignIn from "./components/signin/SignIn";
 import SignUp from "./components/signup/SignUp";
+import AccountDetails from "./components/dashboard/account";
 
 export default function App() {
   return (
@@ -17,6 +18,8 @@ export default function App() {
                 <Route path={"formdialog"} element={<FormUpdateDialog/>}/>
                 <Route path="/signin" element={<SignIn/>}/>
                 <Route path="/signup" element={<SignUp/>}/>
+                <Route path="*" element={<h1>Not Found</h1>} />
+                <Route path="/dashboard" element={<AccountDetails/>} />
             </Route>
           </Routes>
         </BrowserRouter>

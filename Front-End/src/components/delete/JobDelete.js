@@ -5,6 +5,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import {IconButton} from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import {getCurrentUserToken} from "../api/auth/auth.service";
 
 export const JobDelete = ({id}) => {
 
@@ -25,6 +26,7 @@ export const JobDelete = ({id}) => {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + getCurrentUserToken(),
             },
         }).then(res => {
             return res.json()

@@ -13,11 +13,17 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import {useNavigate} from "react-router-dom";
+import {useEffect, useState} from "react";
+import AuthService from "./api/auth/auth.service";
 
 function ResponsiveAppBar() {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [anchorElNav, setAnchorElNav] = useState(null);
+    const [anchorElUser, setAnchorElUser] = useState(null);
     const navigate = useNavigate();
+    const [currentUser, setCurrentUser] = useState(undefined);
+    const [showCompanyBoard, setShowCompanyBoard] = useState(false);
+    const [showAdminBoard, setShowAdminBoard] = useState(false);
+
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -33,6 +39,21 @@ function ResponsiveAppBar() {
         setAnchorElUser(null);
     };
 
+    useEffect(() => {
+        const user = AuthService.getCurrentUser();
+        if (user) {
+            setCurrentUser(user);
+            setShowCompanyBoard(user.roles.includes('ROLE_COMPANY'));
+            setShowAdminBoard(user.roles.includes('ROLE_ADMIN'));
+        }
+    }, []);
+
+    const logOut = () => {
+        AuthService.logout();
+        setShowCompanyBoard(false);
+        setShowAdminBoard(false);
+        setCurrentUser(undefined);
+    };
     return (
         <AppBar position="static">
             <Container maxWidth="xl">
@@ -158,12 +179,46 @@ function ResponsiveAppBar() {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            <MenuItem onClick={() => {handleCloseNavMenu(); navigate("/signin")}}>
-                                <Typography textAlign="center">Sign In</Typography>
-                            </MenuItem>
-                            <MenuItem onClick={() => {handleCloseNavMenu(); navigate("/signup")}}>
-                                <Typography textAlign="center">Sign Up</Typography>
-                            </MenuItem>
+                            {showCompanyBoard && (
+                                <MenuItem onClick={() => {handleCloseNavMenu(); navigate("/company")}}>
+                                    <Typography textAlign="center">Settings</Typography>
+                                </MenuItem>
+                            )
+                            }
+                            {showAdminBoard && (
+                                <>
+                                <MenuItem onClick={() => {handleCloseNavMenu(); navigate("/admin")}}>
+                                    <Typography textAlign="center">Settings</Typography>
+                                </MenuItem>
+                                <MenuItem onClick={() => {handleCloseNavMenu(); navigate("/admin")}}>
+                                    <Typography textAlign="center">Admin Menu</Typography>
+                                </MenuItem>
+                                </>
+                            )}
+                            {currentUser && (
+                                <MenuItem onClick={() => {handleCloseNavMenu(); navigate("/usersettings")}}>
+                                    <Typography textAlign="center">Settings</Typography>
+                                </MenuItem>
+                            )}
+                            {currentUser ? (
+                                <>
+                                    <MenuItem onClick={() => {handleCloseNavMenu(); navigate("/dashboard")}}>
+                                        <Typography textAlign="center">Profile</Typography>
+                                    </MenuItem>
+                                    <MenuItem onClick={() => {handleCloseNavMenu(); logOut(); navigate("/signin")}}>
+                                        <Typography textAlign="center">LogOut</Typography>
+                                    </MenuItem>
+                                </>
+                            ) : (
+                                <>
+                                    <MenuItem onClick={() => {handleCloseNavMenu(); navigate("/signin")}}>
+                                        <Typography textAlign="center">Login</Typography>
+                                    </MenuItem>
+                                    <MenuItem onClick={() => {handleCloseNavMenu(); navigate("/signup")}}>
+                                        <Typography textAlign="center">Sign Up</Typography>
+                                    </MenuItem>
+                                </>
+                            )}
                         </Menu>
                     </Box>
                 </Toolbar>

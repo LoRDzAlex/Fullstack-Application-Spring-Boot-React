@@ -1,6 +1,7 @@
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import {IconButton} from "@mui/material";
 import * as React from "react";
+import {getCurrentUserToken} from "../api/auth/auth.service";
 
 export const CompanyDelete = (id) => {
     function handleCompanyDelete(id) {
@@ -10,6 +11,7 @@ export const CompanyDelete = (id) => {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + getCurrentUserToken(),
             },
         }).then(res => {
             return console.log(res.json())

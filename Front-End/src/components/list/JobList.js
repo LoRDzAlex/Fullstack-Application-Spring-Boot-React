@@ -11,6 +11,7 @@ import FormUpdateDialog from "../update/FormUpdateDialog";
 import CompanyList from "./CompanyList";
 import styles from "../css/table.css"
 import JobDelete from "../delete/JobDelete";
+import {getCurrentUserToken} from "../api/auth/auth.service";
 
 
 export const JobList = () => {
@@ -27,6 +28,7 @@ export const JobList = () => {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + getCurrentUserToken(),
             },
         })
             .then(res => res.json())
@@ -42,7 +44,8 @@ export const JobList = () => {
             )
     }, [])
 
-    if (error) {
+
+   if (error) {
         return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
         return <div>Loading...</div>;

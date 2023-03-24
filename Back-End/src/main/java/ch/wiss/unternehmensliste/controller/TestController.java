@@ -1,6 +1,9 @@
 package ch.wiss.unternehmensliste.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,16 +18,21 @@ public class TestController {
         return "Public Content.";
     }
 
+    @GetMapping("/account")
+    @PreAuthorize("hasRole('USER') or hasRole('COMPANY') or hasRole('ADMIN')")
+    public ResponseEntity<?> getAccountDetails(@AuthenticationPrincipal UserDetails userDetails) {
+        return ResponseEntity.ok(userDetails);
+    }
     @GetMapping("/user")
-    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') or hasRole('COMPANY') or hasRole('ADMIN')")
     public String userAccess() {
         return "User Content.";
     }
 
-    @GetMapping("/mod")
-    @PreAuthorize("hasRole('MODERATOR')")
-    public String moderatorAccess() {
-        return "Moderator Board.";
+    @GetMapping("/company")
+    @PreAuthorize("hasRole('COMPANY')")
+    public String companyAccess() {
+        return "Company Content.";
     }
 
     @GetMapping("/admin")
