@@ -3,7 +3,7 @@ package ch.wiss.unternehmensliste.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Role")
+@Table(name = "role")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

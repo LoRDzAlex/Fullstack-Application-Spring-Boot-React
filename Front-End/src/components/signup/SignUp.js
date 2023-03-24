@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {useState} from "react";
 
 function Copyright(props) {
     return (
@@ -29,14 +30,31 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
-    const handleSubmit = (event) => {
+
+    const [username, setUserName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
+
+    const handleSubmit = (event) =>{
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    };
+        fetch(`http://localhost:8080/api/auth/signup`, {
+            method: 'POST',
+            redirect: 'follow',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({"username": username,"email" : email, "password":password})
+        }).then(res => {
+            return console.log(res)
+        }).then(
+            (error) => {setError(error)}
+        )
+        return console.log("Success")
+    }
+
+
 
     return (
         <ThemeProvider theme={theme}>
@@ -58,25 +76,16 @@ export default function SignUp() {
                     </Typography>
                     <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
-                            <Grid item xs={12} sm={6}>
+                            <Grid item xs={12}>
                                 <TextField
-                                    autoComplete="given-name"
-                                    name="firstName"
+                                    autoComplete="username"
+                                    name="username"
                                     required
                                     fullWidth
-                                    id="firstName"
-                                    label="First Name"
+                                    id="username"
+                                    onChange={(e) => {setUserName(e.target.value);}}
+                                    label="Username"
                                     autoFocus
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    id="lastName"
-                                    label="Last Name"
-                                    name="lastName"
-                                    autoComplete="family-name"
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -84,6 +93,7 @@ export default function SignUp() {
                                     required
                                     fullWidth
                                     id="email"
+                                    onChange={(e) => {setEmail(e.target.value);}}
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
@@ -94,16 +104,11 @@ export default function SignUp() {
                                     required
                                     fullWidth
                                     name="password"
+                                    onChange={(e) => {setPassword(e.target.value);}}
                                     label="Password"
                                     type="password"
                                     id="password"
                                     autoComplete="new-password"
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <FormControlLabel
-                                    control={<Checkbox value="allowExtraEmails" color="primary" />}
-                                    label="I want to receive inspiration, marketing promotions and updates via email."
                                 />
                             </Grid>
                         </Grid>

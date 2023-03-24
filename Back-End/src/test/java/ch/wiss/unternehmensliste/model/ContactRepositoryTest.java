@@ -1,5 +1,6 @@
 package ch.wiss.unternehmensliste.model;
 
+import ch.wiss.unternehmensliste.repository.ContactRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -21,7 +22,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class ContactRepositoryTest {
 
-    @Autowired ContactRepository contactRepository;
+    @Autowired
+    ContactRepository contactRepository;
 
     /**
      * JUnit test for saving a Contact

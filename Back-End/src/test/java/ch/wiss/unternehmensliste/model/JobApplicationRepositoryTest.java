@@ -1,5 +1,8 @@
 package ch.wiss.unternehmensliste.model;
 
+import ch.wiss.unternehmensliste.repository.CompanyRepository;
+import ch.wiss.unternehmensliste.repository.ContactRepository;
+import ch.wiss.unternehmensliste.repository.JobApplicationRepository;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -19,10 +22,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class JobApplicationRepositoryTest {
 
 
-    @Autowired JobApplicationRepository jobApplicationRepository;
+    @Autowired
+    JobApplicationRepository jobApplicationRepository;
 
-    @Autowired CompanyRepository companyRepository;
-    @Autowired ContactRepository contactRepository;
+    @Autowired
+    CompanyRepository companyRepository;
+    @Autowired
+    ContactRepository contactRepository;
 
     /**
      * JUnit test for saving a JobApplication
