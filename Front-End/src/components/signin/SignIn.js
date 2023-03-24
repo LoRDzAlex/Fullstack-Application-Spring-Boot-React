@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {useNavigate} from "react-router-dom";
+import {useState} from "react";
 
 function Copyright(props) {
     return (
@@ -29,14 +30,27 @@ function Copyright(props) {
 
 const theme = createTheme();
 export default function SignIn() {
-    const handleSubmit = (event) => {
+    const navigate = useNavigate();
+    const [username, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
+    const handleSubmit = (event) =>{
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    };
+        fetch(`http://localhost:8080/api/auth/signin`, {
+            method: 'POST',
+            redirect: 'follow',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({"username": username,"password":password})
+        }).then(res => {
+            return console.log(res)
+        }).then(
+            (error) => {setError(error)}
+        )
+        return console.log("Success")
+    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -61,10 +75,11 @@ export default function SignIn() {
                             margin="normal"
                             required
                             fullWidth
-                            id="email"
-                            label="Email Address"
-                            name="email"
-                            autoComplete="email"
+                            id="username"
+                            label="Username"
+                            onChange={(e) => setUserName(e.target.value)}
+                            name="username"
+                            autoComplete="username"
                             autoFocus
                         />
                         <TextField
@@ -73,6 +88,7 @@ export default function SignIn() {
                             fullWidth
                             name="password"
                             label="Password"
+                            onChange={(e) => setPassword(e.target.value)}
                             type="password"
                             id="password"
                             autoComplete="current-password"
@@ -91,7 +107,7 @@ export default function SignIn() {
                         </Button>
                         <Grid container>
                             <Grid item xs>
-                                <Link href="/forgot" variant="body2">
+                                <Link href="#" variant="body2">
                                     Forgot password?
                                 </Link>
                             </Grid>

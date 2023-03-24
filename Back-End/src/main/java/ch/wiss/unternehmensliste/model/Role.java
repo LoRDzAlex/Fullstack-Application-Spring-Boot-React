@@ -14,10 +14,14 @@ public class Role {
 
     public Role() {
     }
-
+    public Role(Integer id, ERole name) {
+        Id = id;
+        this.name = name;
+    }
     public Role(ERole name) {
         this.name = name;
     }
+
 
     public Integer getId() {
         return Id;
