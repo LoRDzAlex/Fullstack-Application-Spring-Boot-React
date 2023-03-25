@@ -20,6 +20,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.HashSet;
 import java.util.List;
@@ -30,6 +31,7 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
+@Transactional
 public class AuthController {
     @Autowired
     AuthenticationManager authenticationManager;
@@ -46,49 +48,60 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
+    /**
+     * Ein neuer Benutzer wird eingeloggt
+     * @param loginRequest
+     * @return ResponseEntity
+     */
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
-
+        // Authentifizierung des Benutzers
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
-
+        // Setzen der Authentifizierung im Security Context Holder
         SecurityContextHolder.getContext().setAuthentication(authentication);
+        // Generieren eines JWT-Tokens
         String jwt = jwtUtils.generateJwtToken(authentication);
-
+        // Extrahieren der Benutzerdetails aus dem Security Context Holder
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toList());
-
+        // Rückgabe des JWT-Tokens und der Benutzerdetails
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),
                 userDetails.getUsername(),
                 userDetails.getEmail(),
                 roles));
     }
-
+    /**
+     * Registrieren eines neuen Benutzers
+     * @param signUpRequest
+     * @return ResponseEntity
+     */
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
+        // Prüfen, ob der Benutzername oder die E-Mail-Adresse bereits existieren
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
                     .body(new MessageResponse("Error: Username is already taken!"));
         }
-
+        // Prüfen, ob die E-Mail-Adresse bereits existiert
         if (userRepository.existsByEmail(signUpRequest.getEmail())) {
             return ResponseEntity
                     .badRequest()
                     .body(new MessageResponse("Error: Email is already in use!"));
         }
 
-        // Create new user's account
+        // Erstellen eines neuen Benutzers
         User user = new User(signUpRequest.getUsername(),
                 encoder.encode(signUpRequest.getPassword()),
                 signUpRequest.getEmail());
-
+        // Setzen der Benutzerrollen
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();
-
+        // Prüfen, ob die Benutzerrolle angegeben wurde
         if (strRoles == null) {
             Role userRole = roleRepository.findByName(Role.ERole.ROLE_USER)
                     .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
@@ -96,6 +109,7 @@ public class AuthController {
         } else {
             strRoles.forEach(role -> {
                 switch (role) {
+                    // Prüfen, ob die Benutzerrolle "admin" oder "company" ist
                     case "admin" -> {
                         Role adminRole = roleRepository.findByName(Role.ERole.ROLE_ADMIN)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
@@ -114,10 +128,10 @@ public class AuthController {
                 }
             });
         }
-
+        // Speichern des Benutzers in der Datenbank
         user.setRoles(roles);
         userRepository.save(user);
-
+        // Rückgabe einer Erfolgsmeldung
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
 }

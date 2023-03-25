@@ -43,6 +43,12 @@ export default function SignUp() {
 
         if (!username.trim()) {
             errors.username = "Please enter a username";
+        } else if (username.length < 3) {
+            errors.username = "Username must be at least 3 characters long";
+        } else if (!/^[a-zA-Z0-9]+$/.test(username)) {
+            errors.username = "Username must contain only letters and numbers";
+        } else if (username.length > 20) {
+            errors.username = "Username must be less than 20 characters long";
         }
 
         if (!email.trim()) {
@@ -53,8 +59,10 @@ export default function SignUp() {
 
         if (!password.trim()) {
             errors.password = "Please enter a password";
-        } else if (password.length < 6) {
-            errors.password = "Password must be at least 6 characters long";
+        } else if (password.length < 8) {
+            errors.password = "Password must be at least 8 characters long";
+        } else if (!/^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[a-zA-Z]).{8,}$/.test(password)) {
+            errors.password = "Password must contain at least one uppercase letter, one lowercase letter and one number";
         }
 
         return errors;
