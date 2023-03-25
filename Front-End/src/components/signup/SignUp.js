@@ -49,11 +49,13 @@ export default function SignUp() {
             },
             body: JSON.stringify({"username": username,"password":password, "email" : email})
         }).then(res => {
-            return console.log(res)
-        }).then(
-            (error) => {setError(error)}
-        )
-        return console.log("Success")
+            if (res.ok) {
+                console.log("Success")
+                navigate("/signin")
+            } else {
+                console.log("Error")
+            }
+        }).catch(err => setError(err.message));
     }
 
 
@@ -76,7 +78,7 @@ export default function SignUp() {
                     <Typography component="h1" variant="h5">
                         Sign up
                     </Typography>
-                    <Box component="form" noValidate onSubmit={() => {handleSubmit(); navigate("/signin")}} sx={{ mt: 3 }}>
+                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
                             <Grid item xs={12}>
                                 <TextField

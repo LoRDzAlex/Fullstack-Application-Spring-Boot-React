@@ -35,13 +35,11 @@ export default function SignIn() {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
-    const [authorized, setAuthorized] = useState(false);
     const handleSubmit = (event) => {
         event.preventDefault();
         AuthService.login(username, password).then(
             () => {
                 navigate('/dashboard');
-                setAuthorized(true);
                 window.location.reload();
             },
             (error) => {
