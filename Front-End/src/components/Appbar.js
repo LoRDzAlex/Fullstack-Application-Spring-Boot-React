@@ -181,16 +181,13 @@ function ResponsiveAppBar() {
                         >
                             {showCompanyBoard && (
                                 <MenuItem onClick={() => {handleCloseNavMenu(); navigate("/company")}}>
-                                    <Typography textAlign="center">Settings</Typography>
+                                    <Typography textAlign="center">Company Menu</Typography>
                                 </MenuItem>
                             )
                             }
                             {showAdminBoard && (
                                 <>
-                                <MenuItem onClick={() => {handleCloseNavMenu(); navigate("/admin")}}>
-                                    <Typography textAlign="center">Settings</Typography>
-                                </MenuItem>
-                                <MenuItem onClick={() => {handleCloseNavMenu(); navigate("/admin")}}>
+                                <MenuItem onClick={() => {handleCloseNavMenu(); navigate("/adminmenu")}}>
                                     <Typography textAlign="center">Admin Menu</Typography>
                                 </MenuItem>
                                 </>
