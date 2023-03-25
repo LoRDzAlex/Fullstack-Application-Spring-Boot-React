@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Collapse, IconButton} from '@mui/material';
 import * as React from 'react';
 import Table from '@mui/material/Table';
@@ -12,8 +12,19 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import FormUpdateCompanyDialog from "../update/FormUpdateCompanyDialog";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ContactList from "./ContactList";
+import AuthService from "../api/auth/auth.service";
 
 export const CompanyList = ({id, companyName, website, canton, contactName, gender, tel, email, contactId}) => {
+    const [currentUser, setCurrentUser] = useState(undefined);
+    const [showAdminOptions, setShowAdminOptions] = useState(false);
+
+    useEffect(() => {
+        const user = AuthService.getCurrentUser();
+        if (user) {
+            setCurrentUser(user);
+            setShowAdminOptions(user.roles.includes('ROLE_ADMIN'));
+        }
+    }, []);
 
     const [expanded, setExpanded] = useState(false);
         return (
@@ -51,9 +62,11 @@ export const CompanyList = ({id, companyName, website, canton, contactName, gend
                                             </TableCell>
                                             <TableCell align="right">{website}</TableCell>
                                             <TableCell align="right">{canton}</TableCell>
+                                            {showAdminOptions && (
                                             <TableCell>
                                                 <FormUpdateCompanyDialog id={id} companyName={companyName} website={website} canton={canton}/>
                                             </TableCell>
+                                            )}
                                         </TableRow>
                                 </TableBody>
                             </Table>

@@ -180,7 +180,7 @@ function ResponsiveAppBar() {
                             onClose={handleCloseUserMenu}
                         >
                             {showCompanyBoard && (
-                                <MenuItem onClick={() => {handleCloseNavMenu(); navigate("/company")}}>
+                                <MenuItem onClick={() => {handleCloseNavMenu(); navigate("/companymenu")}}>
                                     <Typography textAlign="center">Company Menu</Typography>
                                 </MenuItem>
                             )

@@ -11,17 +11,25 @@ import FormUpdateDialog from "../update/FormUpdateDialog";
 import CompanyList from "./CompanyList";
 import styles from "../css/table.css"
 import JobDelete from "../delete/JobDelete";
-import {getCurrentUserToken} from "../api/auth/auth.service";
+import AuthService, {getCurrentUserToken} from "../api/auth/auth.service";
 
 
 export const JobList = () => {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [lists, setList] = useState([]);
+    const [currentUser, setCurrentUser] = useState(undefined);
+    const [showAdminOptions, setShowAdminOptions] = useState(false);
     // Note: the empty deps array [] means
     // this useEffect will run once
     // similar to componentDidMount()
     useEffect(() => {
+        const user = AuthService.getCurrentUser();
+        if (user) {
+            setCurrentUser(user);
+            setShowAdminOptions(user.roles.includes('ROLE_ADMIN'));
+        }
+
         fetch("http://localhost:8080/job", {
             method: 'GET',
             redirect: 'follow',
@@ -84,10 +92,12 @@ export const JobList = () => {
                                 <TableCell align="right">{list.status || "nicht vorhanden"}</TableCell>
                                 <TableCell align="right">{list.changed || "nicht vorhanden"}</TableCell>
                                 <TableCell align="right">{list.created || "nicht vorhanden"}</TableCell>
+                                {showAdminOptions && (
                                 <TableCell>
                                     <FormUpdateDialog id={list.id} jobName={list.jobName} address={list.address} zip={list.zip} status={list.status}/>
                                     <JobDelete id={list.id}/>
                                 </TableCell>
+                                )}
                             </TableRow>
                         <CompanyList id={list.company.id} companyName={list.company.companyName} website={list.company.website} canton={list.company.canton} contactId={list.contact.id} contactName={list.contact.contactName} gender={list.contact.gender} email={list.contact.email} tel={list.contact.tel}/>
                     </TableBody>))}

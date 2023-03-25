@@ -38,8 +38,32 @@ export default function SignUp() {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
+    function validateAll(username, email, password) {
+        const errors = {};
+
+        if (!username.trim()) {
+            errors.username = "Please enter a username";
+        }
+
+        if (!email.trim()) {
+            errors.email = "Please enter an email address";
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            errors.email = "Please enter a valid email address";
+        }
+
+        if (!password.trim()) {
+            errors.password = "Please enter a password";
+        } else if (password.length < 6) {
+            errors.password = "Password must be at least 6 characters long";
+        }
+
+        return errors;
+    }
+
     const handleSubmit = (event) =>{
         event.preventDefault();
+        const errors = validateAll(username, email, password);
+        if(Object.keys(errors).length === 0){
         fetch(`http://localhost:8080/api/auth/signup`, {
             method: 'POST',
             redirect: 'follow',
@@ -56,6 +80,9 @@ export default function SignUp() {
                 console.log("Error")
             }
         }).catch(err => setError(err.message));
+        } else {
+            alert(Object.values(errors).join('\n'))
+        }
     }
 
 

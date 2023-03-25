@@ -38,8 +38,6 @@ public class DataBaseLoader implements CommandLineRunner {
         this.roleRepository.save(new Role(Role.ERole.ROLE_ADMIN));
         this.roleRepository.save(new Role(Role.ERole.ROLE_COMPANY));
 
-
-        /*
         this.companyRepository.save(new Company("Microsoft", "www.microsoft.com", "Zürich"));
         this.contactRepository.save(new Contact("male", "Microsoft Contact", "0715398421", "microsoft@microsoft.com"));
         this.jobApplicationRepository.save(new JobApplication("Applikationsentwickler", "microsoftstrasse", 8000, "nicht Kontaktiert", contactRepository.findById(1), companyRepository.findById(1), LocalDateTime.now()));
@@ -49,6 +47,6 @@ public class DataBaseLoader implements CommandLineRunner {
         this.companyRepository.save(new Company("Ergon Informatik", "www.ergoninformatik.com", "Zürich"));
         this.contactRepository.save(new Contact("male", "Ergon Informatik Contact", "0715393321", "ergon@ergon.com"));
         this.jobApplicationRepository.save(new JobApplication("Applikationsentwickler", "ergonstrasse", 8000, "nicht Kontaktiert", contactRepository.findById(3), companyRepository.findById(3), LocalDateTime.now()));
-        */
+
     }
 }

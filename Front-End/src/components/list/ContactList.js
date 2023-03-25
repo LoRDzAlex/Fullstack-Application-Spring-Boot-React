@@ -8,8 +8,21 @@ import TableRow from '@mui/material/TableRow';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import FormUpdateContactDialog from "../update/FormUpdateContactDialog"
+import {useEffect, useState} from "react";
+import AuthService from "../api/auth/auth.service";
 
 export const ContactList = ({id, gender, contactName, tel, email, expanded}) => {
+
+    const [currentUser, setCurrentUser] = useState(undefined);
+    const [showAdminOptions, setShowAdminOptions] = useState(false);
+
+    useEffect(() => {
+        const user = AuthService.getCurrentUser();
+        if (user) {
+            setCurrentUser(user);
+            setShowAdminOptions(user.roles.includes('ROLE_ADMIN'));
+        }
+    }, []);
 
     return (
         <React.Fragment>
@@ -38,9 +51,11 @@ export const ContactList = ({id, gender, contactName, tel, email, expanded}) => 
                                         <TableCell align="right">{contactName}</TableCell>
                                         <TableCell align="right">{tel}</TableCell>
                                         <TableCell align="right">{email}</TableCell>
+                                        {showAdminOptions && (
                                         <TableCell>
                                             <FormUpdateContactDialog id={id} gender={gender} contactName={contactName} tel={tel} email={email}/>
                                         </TableCell>
+                                        )}
                                     </TableRow>
                                 </TableBody>
                             </Table>
