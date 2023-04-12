@@ -1,6 +1,6 @@
 package ch.wiss.unternehmensliste.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "role")
