@@ -19,15 +19,16 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+/*
+    TODO; kommentieren
+ */
 @DataJpaTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class JobApplicationRepositoryTest {
 
 
     @Autowired
     JobApplicationRepository jobApplicationRepository;
-
     @Autowired
     CompanyRepository companyRepository;
     @Autowired
@@ -37,77 +38,102 @@ class JobApplicationRepositoryTest {
      * JUnit test for saving a JobApplication
      */
     @Test
-    @Order(1)
-    @Rollback(value = false)
     public void saveJobApplicationTest(){
-        this.companyRepository.save(new Company("Microsoft", "www.microsoft.com", "Zürich"));
-        this.contactRepository.save(new Contact("male", "Microsoft Contact", "0715398421", "microsoft@microsoft.com"));
-        JobApplication jobApplication = new JobApplication("Applikationsentwickler", "microsoftstrasse", 8000, "nicht Kontaktiert", contactRepository.findById(1), companyRepository.findById(1), LocalDateTime.now());
+        Company company = new Company( "Microsoft", "www.microsoft.com", "Zürich");
+        companyRepository.save(company);
+        assertTrue(company.getId() > 0);
+        int companyId = company.getId();
+        Contact contact = new Contact("male", "Microsoft Contact", "0715398421", "microsoft@microsoft.com");
+        contactRepository.save(contact);
+        assertTrue(contact.getId() > 0);
+        int contactId = contact.getId();
+        JobApplication jobApplication = new JobApplication("Applikationsentwickler", "microsoftstrasse", 8000, "nicht Kontaktiert", contact, company, LocalDateTime.now());
         jobApplicationRepository.save(jobApplication);
 
-        Assertions.assertThat(jobApplication.getId()).isGreaterThan(0);
+        assertTrue(jobApplication.getId() > 0);
     }
 
     /**
      * JUnit test for getting a JobApplication
      */
     @Test
-    @Order(2)
     public void getJobApplicationTest(){
+        Company company = new Company( "Microsoft", "www.microsoft.com", "Zürich");
+        companyRepository.save(company);
+        assertTrue(company.getId() > 0);
+        Contact contact = new Contact("male", "Microsoft Contact", "0715398421", "microsoft@microsoft.com");
+        contactRepository.save(contact);
+        assertTrue(contact.getId() > 0);
+        JobApplication jobApplication = new JobApplication("Applikationsentwickler", "microsoftstrasse", 8000, "nicht Kontaktiert", contact, company, LocalDateTime.now());
+        jobApplicationRepository.save(jobApplication);
+        assertTrue(jobApplication.getId() > 0);
+        int jobApplicationId = jobApplication.getId();
+        JobApplication result = jobApplicationRepository.findById(jobApplicationId);
 
-        JobApplication jobApplication = jobApplicationRepository.findById(1);
-
-        Assertions.assertThat(jobApplication.getId()).isEqualTo(1);
+        assertEquals(jobApplicationId, result.getId());
     }
 
     /**
      * JUnit test for getting a List of the JobApplication
      */
     @Test
-    @Order(3)
     public void getListOfJobApplicationsTest(){
+            Company company = new Company( "Microsoft", "www.microsoft.com", "Zürich");
+            companyRepository.save(company);
+            assertTrue(company.getId() > 0);
+            Contact contact = new Contact("male", "Microsoft Contact", "0715398421", "microsoft@microsoft.com");
+            contactRepository.save(contact);
+            assertTrue(contact.getId() > 0);
+            JobApplication jobApplication = new JobApplication("Applikationsentwickler", "microsoftstrasse", 8000, "nicht Kontaktiert", contact, company, LocalDateTime.now());
+            jobApplicationRepository.save(jobApplication);
+            assertTrue(jobApplication.getId() > 0);
         List<JobApplication> jobApplications = (List<JobApplication>) jobApplicationRepository.findAll();
 
-        Assertions.assertThat(jobApplications.size()).isGreaterThan(0);
+        assertTrue(jobApplications.size() > 0);
     }
 
     /**
      * JUnit test for updating a JobApplication
      */
     @Test
-    @Order(4)
-    @Rollback(value = false)
     public void updateJobApplicationTest(){
 
-        JobApplication jobApplication = jobApplicationRepository.findById(1);
+            Company company = new Company( "Microsoft", "www.microsoft.com", "Zürich");
+            companyRepository.save(company);
+            assertTrue(company.getId() > 0);
+            Contact contact = new Contact("male", "Microsoft Contact", "0715398421", "microsoft@microsoft.com");
+            contactRepository.save(contact);
+            assertTrue(contact.getId() > 0);
+            JobApplication jobApplication = new JobApplication("Applikationsentwickler", "microsoftstrasse", 8000, "nicht Kontaktiert", contact, company, LocalDateTime.now());
+            jobApplicationRepository.save(jobApplication);
+            assertTrue(jobApplication.getId() > 0);
 
         jobApplication.setAddress("Musterstrasse 23");
 
         JobApplication jobApplicationUpdated = jobApplicationRepository.save(jobApplication);
 
-        Assertions.assertThat(jobApplicationUpdated.getAddress()).isEqualTo("Musterstrasse 23");
+        assertTrue(jobApplication.getAddress().equals("Musterstrasse 23"));
     }
 
     /**
      * JUnit test for deleting a JobApplication
      */
     @Test
-    @Order(5)
-    @Rollback(value = false)
     public void deleteJobApplicationTest(){
 
-        JobApplication jobApplication = jobApplicationRepository.findById(1);
+        Company company = new Company( "Microsoft", "www.microsoft.com", "Zürich");
+        companyRepository.save(company);
+        assertTrue(company.getId() > 0);
+        Contact contact = new Contact("male", "Microsoft Contact", "0715398421", "microsoft@microsoft.com");
+        contactRepository.save(contact);
+        assertTrue(contact.getId() > 0);
+        JobApplication jobApplication = new JobApplication("Applikationsentwickler", "microsoftstrasse", 8000, "nicht Kontaktiert", contact, company, LocalDateTime.now());
+        jobApplicationRepository.save(jobApplication);
+        assertTrue(jobApplication.getId() > 0);
+        int jobApplicationId = jobApplication.getId();
 
         jobApplicationRepository.delete(jobApplication);
 
-        JobApplication jobApplication1 = null;
-
-        Optional<JobApplication> optionalJobApplication = Optional.ofNullable(jobApplicationRepository.findByAddress("Musterstrasse 23"));
-
-        if(optionalJobApplication.isPresent()){
-            jobApplication1 = optionalJobApplication.get();
-        }
-
-        Assertions.assertThat(jobApplication1).isNull();
+        assertFalse(jobApplicationRepository.existsById(jobApplicationId));
     }
 }
