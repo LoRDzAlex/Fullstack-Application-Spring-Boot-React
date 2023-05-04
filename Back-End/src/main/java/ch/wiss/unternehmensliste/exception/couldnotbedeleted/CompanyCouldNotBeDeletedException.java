@@ -1,8 +1,13 @@
 package ch.wiss.unternehmensliste.exception.couldnotbedeleted;
+/**
+ * Exceptionklasse für Unternehmen, die nicht gelöscht werden können
+ *
+ */
+
 
 public class CompanyCouldNotBeDeletedException extends RuntimeException{
     /**
-     * Handles an Exception that accuses while deleting a Company
+     * Exception wird geworfen, wenn ein Unternehmen nicht gelöscht werden kann
      *
      * @param id
      *
