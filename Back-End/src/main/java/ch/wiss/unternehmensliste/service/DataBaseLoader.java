@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 /**
  * Loading TestData into Database
  */
+/*
 @Component
 public class DataBaseLoader implements CommandLineRunner {
 
@@ -50,3 +51,4 @@ public class DataBaseLoader implements CommandLineRunner {
 
     }
 }
+*/

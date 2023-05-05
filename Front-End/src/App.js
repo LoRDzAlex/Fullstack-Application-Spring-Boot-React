@@ -7,6 +7,8 @@ import FormUpdateDialog from "./components/update/FormUpdateDialog";
 import SignIn from "./components/signin/SignIn";
 import SignUp from "./components/signup/SignUp";
 import AccountDetails from "./components/dashboard/account";
+import Firmenliste from "./components/list/Firmenliste";
+import AdminOptions from "./components/dashboard/adminoptions";
 
 export default function App() {
   return (
@@ -19,7 +21,10 @@ export default function App() {
                 <Route path="/signin" element={<SignIn/>}/>
                 <Route path="/signup" element={<SignUp/>}/>
                 <Route path="*" element={<h1>Not Found</h1>} />
+                <Route path="/companylist" element={<Firmenliste/>} />
+                <Route path="/adminmenu" element={<AdminOptions/>} />
                 <Route path="/dashboard" element={<AccountDetails/>} />
+
             </Route>
           </Routes>
         </BrowserRouter>
