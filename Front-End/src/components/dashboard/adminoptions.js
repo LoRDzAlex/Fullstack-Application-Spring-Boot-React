@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import AuthService, { getCurrentUserToken } from '../api/auth/auth.service';
+import React, {useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import AuthService, {getCurrentUserToken} from '../api/auth/auth.service';
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
@@ -9,25 +9,29 @@ import Table from "@mui/material/Table";
 
 const AdminOptions = () => {
     const navigate = useNavigate();
-    const [userData, setUserData] = useState([]);
     const [currentUser, setCurrentUser] = useState(undefined);
+    const [userData, setUserData] = useState([]);
 
     useEffect(() => {
-        const token = getCurrentUserToken();
         const user = AuthService.getCurrentUser();
         if (user) {
             setCurrentUser(user);
         }
+
         fetch('http://localhost:8080/api/test/users', {
             method: 'GET',
+            redirect: 'follow',
             headers: {
-                Authorization: `Bearer ${token}`,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + getCurrentUserToken(),
             },
         })
             .then((res) => res.json())
-            .then((data) => setUserData(data))
+            .then((result) => setUserData(result))
             .catch((error) => console.log(error));
     }, []);
+
 
     return (
         <>
@@ -40,14 +44,14 @@ const AdminOptions = () => {
                             <TableCell></TableCell>
                         </TableRow>
                     </TableHead>
+                    {userData.map((user) => (
                     <TableBody>
-                        {userData.map((user) => (
                         <TableRow key={user.id}>
-                            <TableCell component="th" scope="row" align="left"> {userData.username}</TableCell>
-                            <TableCell align="right">{userData.email}</TableCell>
+                            <TableCell align={"center"}> {user.username}</TableCell>
+                            <TableCell align="left">{user.email}</TableCell>
                         </TableRow>
-                        ))}
                     </TableBody>
+                    ))}
                 </Table>
             ) : (
                 <p>Not authorized</p>

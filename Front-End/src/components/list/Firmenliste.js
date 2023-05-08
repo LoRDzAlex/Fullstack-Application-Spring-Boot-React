@@ -1,5 +1,5 @@
+import * as React from "react";
 import {useEffect, useState} from "react";
-import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -30,6 +30,7 @@ export const Firmenliste = () => {
             },
         })
             .then(res => res.json())
+            .then((result) => { setCompanyList(result); })
             .catch((error) => console.log(error));
     }, []);
 
@@ -48,11 +49,11 @@ export const Firmenliste = () => {
                                 {companyList.map((list) => (
                                 <TableBody >
                                     <TableRow key={list.id}>
-                                        <TableCell component="th" scope="row">
+                                        <TableCell align={"center"}>
                                             {list.companyName}
                                         </TableCell>
-                                        <TableCell align="right">{list.website}</TableCell>
-                                        <TableCell align="right">{list.canton}</TableCell>
+                                        <TableCell>{list.website}</TableCell>
+                                        <TableCell >{list.canton}</TableCell>
                                         {showAdminOptions && (
                                             <TableCell>
                                                 <FormUpdateCompanyDialog id={list.id} companyName={list.companyName} website={list.website} canton={list.canton}/>
