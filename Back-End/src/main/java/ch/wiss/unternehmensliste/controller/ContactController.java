@@ -7,7 +7,6 @@ import ch.wiss.unternehmensliste.exception.load.ContactLoadException;
 import ch.wiss.unternehmensliste.exception.notfound.ContactNotFoundException;
 import ch.wiss.unternehmensliste.model.Contact;
 import ch.wiss.unternehmensliste.repository.ContactRepository;
-import org.mariadb.jdbc.message.client.ResetPacket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -143,7 +142,7 @@ public class ContactController {
      * @throws ContactCouldNotBeUpdatedException if something went wrong
      */
     @PutMapping(path = "")
-    public ResponseEntity<String> updateContact(@RequestParam int id,
+    public ResponseEntity<String> updateContactOld(@RequestParam int id,
                                                 @RequestParam String contactName,
                                                 @RequestParam String gender,
                                                 @RequestParam String tel,
@@ -159,5 +158,31 @@ public class ContactController {
             throw new ContactCouldNotBeUpdatedException(id);
         }
         return ResponseEntity.ok("Updated "+ contactName);
+    }
+
+    @PatchMapping(path = "")
+    public ResponseEntity<String> updateContact(@RequestParam int id,
+                                                @RequestParam(required = false) String contactName,
+                                                @RequestParam(required = false) String gender,
+                                                @RequestParam(required = false) String tel,
+                                                @RequestParam(required = false) String email){
+        Contact c = contactRepository.findById(id);
+        if (c == null) {
+            throw new ContactCouldNotBeUpdatedException(id);
+        }
+        if (contactName != null && !contactName.equals(c.getContactName())) {
+            c.setContactName(contactName);
+        }
+        if (gender != null && !gender.equals(c.getGender())) {
+            c.setGender(gender);
+        }
+        if (tel != null && !tel.equals(c.getTel())) {
+            c.setTel(tel);
+        }
+        if (email != null && !email.equals(c.getEmail())) {
+            c.setEmail(email);
+        }
+        contactRepository.save(c);
+        return ResponseEntity.ok("Updated "+ c.getContactName());
     }
 }

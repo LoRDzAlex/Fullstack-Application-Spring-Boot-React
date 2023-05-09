@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useState} from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -7,7 +8,6 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import {DialogContentText, IconButton} from "@mui/material";
 import AddBoxIcon from "@mui/icons-material/AddBox";
-import {useState} from "react";
 import {getCurrentUserToken} from "../api/auth/auth.service";
 
 export default function FormCreateDialog() {
@@ -56,14 +56,14 @@ export default function FormCreateDialog() {
         return <div>Error: {error.message}</div>;
     }
     return (
-        <div>
+        <>
             <IconButton onClick={() => handleClickOpen()}>
                 <AddBoxIcon/>
             </IconButton>
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Create</DialogTitle>
                 <DialogContent>
-                    <DialogContentText>Job</DialogContentText>
+                    <DialogContentText>Berufsbezeichnung</DialogContentText>
                     <TextField
                         autoFocus
                         error={jobname===""}
@@ -72,7 +72,7 @@ export default function FormCreateDialog() {
                         margin="dense"
                         id="name"
                         onChange={(e) => {setJobname(e.target.value);}}
-                        label="Job Name"
+                        label="Berufsbezeichnung"
                         type="text"
                         fullWidth
                         variant="standard"
@@ -86,7 +86,7 @@ export default function FormCreateDialog() {
                         margin="dense"
                         id="address"
                         onChange={(e) => setAddress((e.target.value))}
-                        label="Address"
+                        label="Adresse"
                         type="text"
                         fullWidth
                         variant="standard"
@@ -100,7 +100,7 @@ export default function FormCreateDialog() {
                         margin="dense"
                         id="zip"
                         onChange={(e) => setZip((e.target.value))}
-                        label="Zip"
+                        label="PLZ"
                         type="number"
                         fullWidth
                         variant="standard"
@@ -120,7 +120,7 @@ export default function FormCreateDialog() {
                         variant="standard"
                         required
                     />
-                    <DialogContentText><br/>Company</DialogContentText>
+                    <DialogContentText><br/>Firma</DialogContentText>
                     <TextField
                         error={companyname===""}
                         helperText={companyname === "" ? 'please fill in empty field' : ' '}
@@ -129,7 +129,7 @@ export default function FormCreateDialog() {
                         margin="dense"
                         id="companyname"
                         onChange={(e) => setCompanyname((e.target.value))}
-                        label="Company Name"
+                        label="Firmenname"
                         type="text"
                         fullWidth
                         variant="standard"
@@ -157,13 +157,13 @@ export default function FormCreateDialog() {
                         margin="dense"
                         id="canton"
                         onChange={(e) => setCanton((e.target.value))}
-                        label="Canton"
+                        label="Kanton"
                         type="text"
                         fullWidth
                         variant="standard"
                         required
                     />
-                    <DialogContentText><br/>Contact</DialogContentText>
+                    <DialogContentText><br/>Kontakt</DialogContentText>
                     <TextField
                         error={gender===""}
                         helperText={gender === "" ? 'please fill in empty field' : ' '}
@@ -172,7 +172,7 @@ export default function FormCreateDialog() {
                         margin="dense"
                         id="gender"
                         onChange={(e) => setGender((e.target.value))}
-                        label="Gender"
+                        label="Geschlecht"
                         type="text"
                         fullWidth
                         variant="standard"
@@ -186,7 +186,7 @@ export default function FormCreateDialog() {
                         margin="dense"
                         id="fullname"
                         onChange={(e) => setFullname((e.target.value))}
-                        label="Fullname"
+                        label="Vorname Nachname"
                         type="text"
                         fullWidth
                         variant="standard"
@@ -200,7 +200,7 @@ export default function FormCreateDialog() {
                         margin="dense"
                         id="tel"
                         onChange={(e) => setTel((e.target.value))}
-                        label="Tel"
+                        label="Telefonnummer"
                         type="text"
                         fullWidth
                         variant="standard"
@@ -226,6 +226,6 @@ export default function FormCreateDialog() {
                     <Button onClick={() => {handleCreate(jobname, address, zip, status, companyname, website, canton, gender, fullname, tel, email); handleClose(); window.location.reload();}}>Create</Button>
                 </DialogActions>
             </Dialog>
-        </div>
+        </>
     );
 }

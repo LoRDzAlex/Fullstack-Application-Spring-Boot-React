@@ -118,7 +118,7 @@ public class CompanyController {
      * @throws CompanyCouldNotBeUpdatedException if something went wrong
      */
     @PutMapping(path = "")
-    public ResponseEntity<String> updateCompany(@RequestParam int id,
+    public ResponseEntity<String> updateCompanyOld(@RequestParam int id,
                                                 @RequestParam String companyName,
                                                 @RequestParam String website,
                                                 @RequestParam String canton){
@@ -132,6 +132,28 @@ public class CompanyController {
             throw new CompanyCouldNotBeUpdatedException(id);
         }
         return ResponseEntity.ok("Updated "+ companyName);
+    }
+
+    @PatchMapping(path = "")
+    public ResponseEntity<String> updateCompany(@RequestParam int id,
+                                                @RequestParam(required = false) String companyName,
+                                                @RequestParam(required = false) String website,
+                                                @RequestParam(required = false) String canton) {
+        Company c = companyRepository.findById(id);
+        if (c == null) {
+            throw new CompanyCouldNotBeUpdatedException(id);
+        }
+        if (companyName != null && !companyName.equals(c.getCompanyName())) {
+            c.setCompanyName(companyName);
+        }
+        if (website != null && !website.equals(c.getWebsite())) {
+            c.setWebsite(website);
+        }
+        if (canton != null && !canton.equals(c.getCanton())) {
+            c.setCanton(canton);
+        }
+        companyRepository.save(c);
+        return ResponseEntity.ok("Updated " + c.getCompanyName());
     }
 
 }
