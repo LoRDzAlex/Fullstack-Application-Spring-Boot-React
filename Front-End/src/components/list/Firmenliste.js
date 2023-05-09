@@ -12,12 +12,14 @@ export const Firmenliste = () => {
     const [currentUser, setCurrentUser] = useState(undefined);
     const [showAdminOptions, setShowAdminOptions] = useState(false);
     const [companyList, setCompanyList] = useState([]);
+    const [showCompanyOptions, setShowCompanyOptions] = useState(false);
 
     useEffect(() => {
         const user = AuthService.getCurrentUser();
         if (user) {
             setCurrentUser(user);
             setShowAdminOptions(user.roles.includes('ROLE_ADMIN'));
+            setShowCompanyOptions(user.roles.includes('ROLE_COMPANY'));
         }
 
         fetch("http://localhost:8080/company", {
@@ -36,7 +38,7 @@ export const Firmenliste = () => {
     return (
         <React.Fragment>
             <Table size="big" aria-label="purchases">
-                <TableHead>
+                <TableHead sx={{ bgcolor: "#eaeaea" }}>
                     <TableRow>
                         <TableCell align="center">Firmen Name</TableCell>
                         <TableCell>Website</TableCell>
@@ -52,7 +54,12 @@ export const Firmenliste = () => {
                             </TableCell>
                             <TableCell>{list.website}</TableCell>
                             <TableCell >{list.canton}</TableCell>
-                            {showAdminOptions && (
+                            {showAdminOptions &&(
+                                <TableCell>
+                                    <FormUpdateCompanyDialog id={list.id} companyName={list.companyName} website={list.website} canton={list.canton}/>
+                                </TableCell>
+                            )}
+                            {showCompanyOptions && (
                                 <TableCell>
                                     <FormUpdateCompanyDialog id={list.id} companyName={list.companyName} website={list.website} canton={list.canton}/>
                                 </TableCell>

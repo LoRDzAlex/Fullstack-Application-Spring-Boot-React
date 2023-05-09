@@ -64,7 +64,9 @@ export const JobList = () => {
             <TableContainer component={Paper} className={styles.TableContainer}>
                 <Typography variant="h6" gutterBottom component="div" align="left">
                     Praktikumsliste
+                    {showAdminOptions &&(
                     <FormCreateDialog/>
+                    )}
                 </Typography>
                 <Table aria-label="collapsible table" className={styles.Table}>
 

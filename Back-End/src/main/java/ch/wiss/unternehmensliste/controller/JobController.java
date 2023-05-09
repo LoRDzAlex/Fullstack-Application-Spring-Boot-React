@@ -236,4 +236,14 @@ public class JobController {
         jobApplicationRepository.save(j);
         return ResponseEntity.ok("Updated id: "+ j.getId());
     }
+
+    @DeleteMapping(path = "/delete")
+    public ResponseEntity<String> deleteMultipleJobsByCompanyName(@RequestParam String companyName){
+        try{
+            jobApplicationRepository.deleteAllByCompany_CompanyName(companyName);
+        }catch (Exception ex){
+            return ResponseEntity.badRequest().body("Could not delete");
+        }
+        return ResponseEntity.ok("Deleted");
+    }
 }

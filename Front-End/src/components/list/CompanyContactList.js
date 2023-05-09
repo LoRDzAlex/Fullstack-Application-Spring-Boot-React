@@ -18,12 +18,13 @@ export const CompanyContactList = ({ id, companyName, website, canton, contactNa
     const [currentUser, setCurrentUser] = useState(undefined);
     const [showAdminOptions, setShowAdminOptions] = useState(false);
     const [expanded, setExpanded] = useState(false);
-
+    const [showCompanyOptions, setShowCompanyOptions] = useState(false);
     useEffect(() => {
         const user = AuthService.getCurrentUser();
         if (user) {
             setCurrentUser(user);
             setShowAdminOptions(user.roles.includes("ROLE_ADMIN"));
+            setShowCompanyOptions(user.roles.includes("ROLE_COMPANY"));
         }
     }, []);
 
@@ -73,6 +74,16 @@ export const CompanyContactList = ({ id, companyName, website, canton, contactNa
                                             />
                                         </TableCell>
                                     )}
+                                    {showCompanyOptions && (
+                                        <TableCell>
+                                            <FormUpdateCompanyDialog
+                                                id={id}
+                                                companyName={companyName}
+                                                website={website}
+                                                canton={canton}
+                                            />
+                                        </TableCell>
+                                    )}
                                 </TableRow>
                             </TableBody>
                         </Table>
@@ -99,6 +110,11 @@ export const CompanyContactList = ({ id, companyName, website, canton, contactNa
                                     <TableCell >{email}</TableCell>
                                     <TableCell >{tel}</TableCell>
                                     {showAdminOptions && (
+                                        <TableCell>
+                                            <FormUpdateContactDialog id={id} gender={gender} contactName={contactName} tel={tel} email={email}/>
+                                        </TableCell>
+                                    )}
+                                    {showCompanyOptions && (
                                         <TableCell>
                                             <FormUpdateContactDialog id={id} gender={gender} contactName={contactName} tel={tel} email={email}/>
                                         </TableCell>

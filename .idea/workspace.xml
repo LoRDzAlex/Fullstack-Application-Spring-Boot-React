@@ -4,40 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29e2025c-b41f-4160-ac1a-bcfdb3c95852" name="Changes" comment="Bugs fixed">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front-End/src/components/dashboard/accountsettings.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front-End/src/components/delete/UserDelete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front-End/src/components/list/CompanyContactList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front-End/src/components/tests/companycontact/CompanyUpdate.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front-End/src/components/tests/companycontact/Companycontact.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front-End/src/components/tests/job/Job.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front-End/src/components/tests/job/JobCreate.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front-End/src/components/tests/job/JobDelete.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front-End/src/components/tests/user/User.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front-End/src/components/tests/user/UserDelete.test.js" afterDir="false" />
+    <list default="true" id="29e2025c-b41f-4160-ac1a-bcfdb3c95852" name="Changes" comment="Bugs fixed,&#10;PUT zu PATCH geändert,&#10;Jest Tests angefangen&#10;Rechte und Anzeigen überarbeitet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/CompanyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/ContactController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/JobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/JobController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/model/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/security/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/service/DataBaseLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/service/DataBaseLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-End/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-End/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/repository/JobApplicationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/repository/JobApplicationRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/src/components/create/FormCreateDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/create/FormCreateDialog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/src/components/dashboard/adminoptions.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/dashboard/adminoptions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/list/CompanyContactList.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/list/CompanyContactList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/src/components/list/Firmenliste.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/list/Firmenliste.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/src/components/list/JobList.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/list/JobList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateCompanyDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateCompanyDialog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateContactDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateContactDialog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/tests/companycontact/CompanyUpdate.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/dashboard/companyoptions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/tests/companycontact/Companycontact.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/tests/job/Job.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/delete/CompanyListingDelete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/tests/job/JobCreate.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/tests/job/JobDelete.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/tests/user/User.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/tests/user/User.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/tests/user/UserDelete.test.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +77,19 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Jest.CompanyContactList">
+  <component name="RunManager" selected="Spring Boot.UnternehmenslisteApplication">
+    <configuration name="AccountDetails" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/Front-End/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$/Front-End" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/Front-End/src/components/tests/user/User.test.js" />
+      <test-names>
+        <test-name value="AccountDetails" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="CompanyContactList component" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/Front-End/node_modules/react-scripts" />
@@ -117,18 +111,6 @@
       <test-file value="$PROJECT_DIR$/Front-End/src/components/tests/companycontact/Companycontact.test.js" />
       <test-names>
         <test-name value="CompanyContactList" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="SignIn" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/Front-End/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$/Front-End" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/Front-End/src/components/tests/user/UserSignIn.test.js" />
-      <test-names>
-        <test-name value="SignIn" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -165,11 +147,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.AccountDetails" />
+        <item itemvalue="Jest.UserDelete" />
         <item itemvalue="Jest.CompanyContactList" />
         <item itemvalue="Jest.CompanyContactList component" />
-        <item itemvalue="Jest.UserDelete" />
         <item itemvalue="Jest.UserDelete component" />
-        <item itemvalue="Jest.SignIn" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +165,7 @@
       <updated>1683281014966</updated>
       <workItem from="1683281016318" duration="5663000" />
       <workItem from="1683562344335" duration="3633000" />
-      <workItem from="1683632334037" duration="19944000" />
+      <workItem from="1683632334037" duration="24357000" />
     </task>
     <task id="LOCAL-00001" summary="Firmenliste.js erstellt und hinzugefügt&#10;adminoptions.js erstellt und hinzugefügt">
       <created>1683287957839</created>
@@ -199,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683571388043</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Bugs fixed,&#10;PUT zu PATCH geändert,&#10;Jest Tests angefangen&#10;Rechte und Anzeigen überarbeitet">
+      <created>1683653013449</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683653013449</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,7 +197,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Firmenliste.js erstellt und hinzugefügt&#10;adminoptions.js erstellt und hinzugefügt" />
     <MESSAGE value="Bugs fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bugs fixed" />
+    <MESSAGE value="Bugs fixed,&#10;PUT zu PATCH geändert,&#10;Jest Tests angefangen&#10;Rechte und Anzeigen überarbeitet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bugs fixed,&#10;PUT zu PATCH geändert,&#10;Jest Tests angefangen&#10;Rechte und Anzeigen überarbeitet" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

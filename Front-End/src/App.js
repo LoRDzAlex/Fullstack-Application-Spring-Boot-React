@@ -9,6 +9,7 @@ import AccountDetails from "./components/dashboard/account";
 import Firmenliste from "./components/list/Firmenliste";
 import AdminOptions from "./components/dashboard/adminoptions";
 import AccountSettings from "./components/dashboard/accountsettings";
+import Companyoptions from "./components/dashboard/companyoptions";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
                 <Route path="/adminmenu" element={<AdminOptions/>} />
                 <Route path="/dashboard" element={<AccountDetails/>} />
                 <Route path="/usersettings" element={<AccountSettings/>} />
+                <Route path="/companymenu" element={<Companyoptions/>}  />
             </Route>
           </Routes>
         </BrowserRouter>

@@ -16,5 +16,6 @@ public interface JobApplicationRepository extends CrudRepository<JobApplication,
 
     Iterable<JobApplication> findAllByJobName(String jobName);
 
+    Iterable<JobApplication> deleteAllByCompany_CompanyName(String companyName);
     Iterable<JobApplication> findAllByChanged(LocalDateTime changed);
 }
