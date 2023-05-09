@@ -6,7 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import FormUpdateCompanyDialog from "../update/FormUpdateCompanyDialog";
-import AuthService, {getCurrentUserToken} from "../api/auth/auth.service";
+import AuthService from "../api/auth/auth.service";
 
 export const Firmenliste = () => {
     const [currentUser, setCurrentUser] = useState(undefined);
@@ -25,8 +25,7 @@ export const Firmenliste = () => {
             redirect: 'follow',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + getCurrentUserToken(),
+                'Content-Type': 'application/json'
             },
         })
             .then(res => res.json())
@@ -34,35 +33,34 @@ export const Firmenliste = () => {
             .catch((error) => console.log(error));
     }, []);
 
-    const [expanded, setExpanded] = useState(false);
     return (
         <React.Fragment>
-                            <Table size="big" aria-label="purchases">
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell align="center">Firmen Name</TableCell>
-                                        <TableCell>Website</TableCell>
-                                        <TableCell >Kanton</TableCell>
-                                        <TableCell></TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                {companyList.map((list) => (
-                                <TableBody >
-                                    <TableRow key={list.id}>
-                                        <TableCell align={"center"}>
-                                            {list.companyName}
-                                        </TableCell>
-                                        <TableCell>{list.website}</TableCell>
-                                        <TableCell >{list.canton}</TableCell>
-                                        {showAdminOptions && (
-                                            <TableCell>
-                                                <FormUpdateCompanyDialog id={list.id} companyName={list.companyName} website={list.website} canton={list.canton}/>
-                                            </TableCell>
-                                        )}
-                                    </TableRow>
-                                </TableBody>
-                                    ))}
-                            </Table>
+            <Table size="big" aria-label="purchases">
+                <TableHead>
+                    <TableRow>
+                        <TableCell align="center">Firmen Name</TableCell>
+                        <TableCell>Website</TableCell>
+                        <TableCell >Kanton</TableCell>
+                        <TableCell></TableCell>
+                    </TableRow>
+                </TableHead>
+                {companyList.map((list) => (
+                    <TableBody >
+                        <TableRow key={list.id}>
+                            <TableCell align={"center"}>
+                                {list.companyName}
+                            </TableCell>
+                            <TableCell>{list.website}</TableCell>
+                            <TableCell >{list.canton}</TableCell>
+                            {showAdminOptions && (
+                                <TableCell>
+                                    <FormUpdateCompanyDialog id={list.id} companyName={list.companyName} website={list.website} canton={list.canton}/>
+                                </TableCell>
+                            )}
+                        </TableRow>
+                    </TableBody>
+                ))}
+            </Table>
         </React.Fragment>
     );
 

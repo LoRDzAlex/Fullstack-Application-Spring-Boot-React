@@ -6,6 +6,7 @@ import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableBody from "@mui/material/TableBody";
 import Table from "@mui/material/Table";
+import UserDelete from "../delete/UserDelete";
 
 const AdminOptions = () => {
     const navigate = useNavigate();
@@ -41,7 +42,8 @@ const AdminOptions = () => {
                         <TableRow>
                             <TableCell align="center">Username</TableCell>
                             <TableCell align="left">Email</TableCell>
-                            <TableCell></TableCell>
+                            <TableCell>Rollen</TableCell>
+                            <TableCell/>
                         </TableRow>
                     </TableHead>
                     {userData.map((user) => (
@@ -49,6 +51,8 @@ const AdminOptions = () => {
                         <TableRow key={user.id}>
                             <TableCell align={"center"}> {user.username}</TableCell>
                             <TableCell align="left">{user.email}</TableCell>
+                            <TableCell>{user.roles.map((role) => role.name.replace("ROLE_", "")).join(", ")}</TableCell>
+                            <TableCell><UserDelete id={user.id}/></TableCell>
                         </TableRow>
                     </TableBody>
                     ))}

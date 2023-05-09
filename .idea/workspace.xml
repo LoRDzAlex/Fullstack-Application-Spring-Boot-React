@@ -5,10 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29e2025c-b41f-4160-ac1a-bcfdb3c95852" name="Changes" comment="Bugs fixed">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/src/components/dashboard/accountsettings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/src/components/delete/UserDelete.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/src/components/list/CompanyContactList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/src/components/tests/companycontact/CompanyUpdate.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/src/components/tests/companycontact/Companycontact.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/src/components/tests/job/Job.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/src/components/tests/job/JobCreate.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/src/components/tests/job/JobDelete.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/src/components/tests/user/User.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/src/components/tests/user/UserDelete.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/ContactController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/JobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/JobController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/model/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/service/DataBaseLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/service/DataBaseLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Back-End/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/jest.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/create/FormCreateDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/create/FormCreateDialog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/src/components/dashboard/adminoptions.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/dashboard/adminoptions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/src/components/list/Firmenliste.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/list/Firmenliste.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/list/JobList.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/list/JobList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateCompanyDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateCompanyDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateContactDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateContactDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateDialog.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,25 +68,94 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;alex__branch&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;0c9b5f6dac3b6dd3a5ce563e6612925b&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "alex__branch",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "C:/Users/Alex/IdeaProjects/Fullstack-Application-Spring-Boot-React/Front-End/node_modules/react-scripts",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "spring.configuration.checksum": "0c9b5f6dac3b6dd3a5ce563e6612925b",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
+    ]
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RunManager" selected="Jest.CompanyContactList">
+    <configuration name="CompanyContactList component" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/Front-End/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$/Front-End" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/Front-End/src/components/tests/companycontact/Companycontact.test.js" />
+      <test-names>
+        <test-name value="CompanyContactList component" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="CompanyContactList" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/Front-End/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$/Front-End" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/Front-End/src/components/tests/companycontact/Companycontact.test.js" />
+      <test-names>
+        <test-name value="CompanyContactList" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="SignIn" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/Front-End/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$/Front-End" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/Front-End/src/components/tests/user/UserSignIn.test.js" />
+      <test-names>
+        <test-name value="SignIn" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserDelete component" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/Front-End/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$/Front-End" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/Front-End/src/components/tests/user/UserDelete.test.js" />
+      <test-names>
+        <test-name value="UserDelete component" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserDelete" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/Front-End/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$/Front-End" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/Front-End/src/components/tests/user/UserDelete.test.js" />
+      <test-names>
+        <test-name value="UserDelete" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="UnternehmenslisteApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Unternehmensliste" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ch.wiss.unternehmensliste.UnternehmenslisteApplication" />
@@ -65,6 +163,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.CompanyContactList" />
+        <item itemvalue="Jest.CompanyContactList component" />
+        <item itemvalue="Jest.UserDelete" />
+        <item itemvalue="Jest.UserDelete component" />
+        <item itemvalue="Jest.SignIn" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -75,7 +182,8 @@
       <option name="presentableId" value="Default" />
       <updated>1683281014966</updated>
       <workItem from="1683281016318" duration="5663000" />
-      <workItem from="1683562344335" duration="2810000" />
+      <workItem from="1683562344335" duration="3633000" />
+      <workItem from="1683632334037" duration="19944000" />
     </task>
     <task id="LOCAL-00001" summary="Firmenliste.js erstellt und hinzugefügt&#10;adminoptions.js erstellt und hinzugefügt">
       <created>1683287957839</created>
@@ -84,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683287957839</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Bugs fixed">
+      <created>1683571388043</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683571388043</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

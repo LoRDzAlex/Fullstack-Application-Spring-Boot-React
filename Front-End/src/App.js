@@ -1,6 +1,5 @@
 import "./App.css"
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import JobList from './components/list/JobList'
 import Layout from "./components/Layout";
 import FormUpdateDialog from "./components/update/FormUpdateDialog";
@@ -9,6 +8,7 @@ import SignUp from "./components/signup/SignUp";
 import AccountDetails from "./components/dashboard/account";
 import Firmenliste from "./components/list/Firmenliste";
 import AdminOptions from "./components/dashboard/adminoptions";
+import AccountSettings from "./components/dashboard/accountsettings";
 
 export default function App() {
   return (
@@ -24,7 +24,7 @@ export default function App() {
                 <Route path="/companylist" element={<Firmenliste/>} />
                 <Route path="/adminmenu" element={<AdminOptions/>} />
                 <Route path="/dashboard" element={<AccountDetails/>} />
-
+                <Route path="/usersettings" element={<AccountSettings/>} />
             </Route>
           </Routes>
         </BrowserRouter>

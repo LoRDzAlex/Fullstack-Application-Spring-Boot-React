@@ -8,10 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -41,6 +39,38 @@ public class UserController {
         }
         return ResponseEntity.ok(users);
     }
+
+    @DeleteMapping("/user/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> deleteUser(@PathVariable("id") long id) {
+        try{
+            userRepository.deleteById(id);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(new MessageResponse("Error: " + e.getMessage()));
+        }
+        return ResponseEntity.ok(new MessageResponse("User deleted successfully!"));
+    }
+
+    @PatchMapping("/user")
+    public ResponseEntity<?> updateUser(@RequestParam(required = false) String username, @RequestParam(required = false) String email) {
+        try {
+            User user = userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
+
+            if (email != null & !user.getEmail().equals(email)) {
+                user.setEmail(email);
+            }
+            if (username != null && !user.getUsername().equals(username)) {
+                user.setUsername(username);
+            }
+
+            userRepository.save(user);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(new MessageResponse("Error: " + e.getMessage()));
+        }
+
+        return ResponseEntity.ok(new MessageResponse("User updated successfully!"));
+    }
+
 
     @GetMapping("/user")
     @PreAuthorize("hasRole('USER') or hasRole('COMPANY') or hasRole('ADMIN')")

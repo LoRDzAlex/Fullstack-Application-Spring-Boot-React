@@ -5,7 +5,9 @@ import ch.wiss.unternehmensliste.exception.couldnotbesaved.JobCouldNotBeSavedExc
 import ch.wiss.unternehmensliste.exception.couldnotbeupdated.JobCouldNotBeUpdatedException;
 import ch.wiss.unternehmensliste.exception.load.JobLoadException;
 import ch.wiss.unternehmensliste.exception.notfound.JobNotFoundException;
-import ch.wiss.unternehmensliste.model.*;
+import ch.wiss.unternehmensliste.model.Company;
+import ch.wiss.unternehmensliste.model.Contact;
+import ch.wiss.unternehmensliste.model.JobApplication;
 import ch.wiss.unternehmensliste.repository.CompanyRepository;
 import ch.wiss.unternehmensliste.repository.ContactRepository;
 import ch.wiss.unternehmensliste.repository.JobApplicationRepository;
@@ -210,5 +212,28 @@ public class JobController {
             throw new JobCouldNotBeUpdatedException(id);
         }
         return ResponseEntity.ok("Updated id: "+ id);
+    }
+
+    @PatchMapping(path = "")
+    public ResponseEntity<String> updateJobApplication(@RequestParam int id,
+                                                       @RequestParam(required = false) String jobName,
+                                                       @RequestParam(required = false) String address,
+                                                       @RequestParam(required = false) Integer zip){
+        JobApplication j = jobApplicationRepository.findById(id);
+        if (j == null) {
+            throw new JobCouldNotBeUpdatedException(id);
+        }
+        if (jobName != null && !jobName.equals(j.getJobName())) {
+            j.setJobName(jobName);
+        }
+        if (address != null && !address.equals(j.getAddress())) {
+            j.setAddress(address);
+        }
+        if (zip != null && !zip.equals(j.getZip())) {
+            j.setZip(zip);
+        }
+        j.setChanged(LocalDate.now());
+        jobApplicationRepository.save(j);
+        return ResponseEntity.ok("Updated id: "+ j.getId());
     }
 }

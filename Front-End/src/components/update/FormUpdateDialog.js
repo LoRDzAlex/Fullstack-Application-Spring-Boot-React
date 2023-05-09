@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useState} from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -7,7 +8,6 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import EditIcon from "@mui/icons-material/Edit";
 import {IconButton} from "@mui/material";
-import {useState} from "react";
 import {getCurrentUserToken} from "../api/auth/auth.service";
 
 
@@ -29,7 +29,7 @@ export const FormUpdateDialog = ({id, jobName, address, zip, status}) =>{
 
     function handleUpdate(id, jobName, address, zip, status){
         fetch(`http://localhost:8080/job?id=${id}&jobName=${jobName}&address=${address}&zip=${zip}&status=${status}`, {
-            method: 'PUT',
+            method: 'PATCH',
             redirect: 'follow',
             headers: {
                 'Accept': 'application/json',
@@ -49,7 +49,7 @@ export const FormUpdateDialog = ({id, jobName, address, zip, status}) =>{
         return <div>Error: {error.message}</div>;
     }
     return (
-        <div>
+        <>
             <IconButton onClick={() => handleClickOpen()}>
                 <EditIcon/>
             </IconButton>
@@ -107,7 +107,7 @@ export const FormUpdateDialog = ({id, jobName, address, zip, status}) =>{
                     <Button onClick={() => {handleUpdate(id, jn, ad, zp, st); handleClose(); window.location.reload();}}>Update</Button>
                 </DialogActions>
             </Dialog>
-        </div>
+        </>
     );
 }
 export default FormUpdateDialog
