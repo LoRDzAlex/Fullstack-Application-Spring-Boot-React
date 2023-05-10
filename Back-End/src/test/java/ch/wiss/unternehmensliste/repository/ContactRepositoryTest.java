@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 /*
-    TODO; kommentieren
+    Hier sind die JUnit Tests für die ContactRepository, die testen die Grundfunktionen der CRUDRepository
  */
 @DataJpaTest
 class ContactRepositoryTest {
@@ -20,7 +20,7 @@ class ContactRepositoryTest {
     ContactRepository contactRepository;
 
     /**
-     * JUnit test for saving a Contact
+     * Um eine Contact zu speichern
      */
     @Test
     public void saveContactTest(){
@@ -34,7 +34,7 @@ class ContactRepositoryTest {
     }
 
     /**
-     * JUnit test for getting a Contact
+     * um eine Contact zu finden
      */
     @Test
     public void getContactTest(){
@@ -51,7 +51,7 @@ class ContactRepositoryTest {
     }
 
     /**
-     * JUnit test for getting a List of the Contact
+     * um eine Liste von Contacts zu finden
      */
     @Test
     public void getListOfContactsTest(){
@@ -64,7 +64,7 @@ class ContactRepositoryTest {
     }
 
     /**
-     * JUnit test for updating a Contact
+     * Um eine Contact zu speichern
      */
     @Test
     public void updateContactTest(){
@@ -81,7 +81,7 @@ class ContactRepositoryTest {
     }
 
     /**
-     * JUnit test for deleting a Contact
+     * Um eine Contact zu löschen
      */
     @Test
     public void deleteContactTest(){

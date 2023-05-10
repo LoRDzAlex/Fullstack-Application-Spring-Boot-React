@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 /*
-    TODO; kommentieren
+    Hier sind die JUnit Tests für die JobApplicationRepository, die testen die Grundfunktionen der CRUDRepository
  */
 @DataJpaTest
 class JobApplicationRepositoryTest {
@@ -35,7 +35,7 @@ class JobApplicationRepositoryTest {
     ContactRepository contactRepository;
 
     /**
-     * JUnit test for saving a JobApplication
+     * um eine JobApplication zu speichern
      */
     @Test
     public void saveJobApplicationTest(){
@@ -54,7 +54,7 @@ class JobApplicationRepositoryTest {
     }
 
     /**
-     * JUnit test for getting a JobApplication
+     * um eine JobApplication zu finden
      */
     @Test
     public void getJobApplicationTest(){
@@ -74,8 +74,8 @@ class JobApplicationRepositoryTest {
     }
 
     /**
-     * JUnit test for getting a List of the JobApplication
-     */
+     * um eine Liste von JobApplications zu finden
+     * */
     @Test
     public void getListOfJobApplicationsTest(){
             Company company = new Company( "Microsoft", "www.microsoft.com", "Zürich");
@@ -93,7 +93,7 @@ class JobApplicationRepositoryTest {
     }
 
     /**
-     * JUnit test for updating a JobApplication
+     * um eine JobApplication zu aktualisieren
      */
     @Test
     public void updateJobApplicationTest(){
@@ -116,7 +116,7 @@ class JobApplicationRepositoryTest {
     }
 
     /**
-     * JUnit test for deleting a JobApplication
+     * um eine JobApplication zu löschen
      */
     @Test
     public void deleteJobApplicationTest(){
