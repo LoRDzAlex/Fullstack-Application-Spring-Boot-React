@@ -5,7 +5,9 @@ import ch.wiss.unternehmensliste.exception.couldnotbesaved.JobCouldNotBeSavedExc
 import ch.wiss.unternehmensliste.exception.couldnotbeupdated.JobCouldNotBeUpdatedException;
 import ch.wiss.unternehmensliste.exception.load.JobLoadException;
 import ch.wiss.unternehmensliste.exception.notfound.JobNotFoundException;
-import ch.wiss.unternehmensliste.model.*;
+import ch.wiss.unternehmensliste.model.Company;
+import ch.wiss.unternehmensliste.model.Contact;
+import ch.wiss.unternehmensliste.model.JobApplication;
 import ch.wiss.unternehmensliste.repository.CompanyRepository;
 import ch.wiss.unternehmensliste.repository.ContactRepository;
 import ch.wiss.unternehmensliste.repository.JobApplicationRepository;
@@ -23,9 +25,9 @@ import java.time.LocalDateTime;
 public class JobController {
 
     /**
-     * Wire ContactRepository
+     * Verbinde das ContactRepository
      * @param contactRepository
-     * @return wired ContactRepository
+     * @return verbundenes ContactRepository
      */
     private ContactRepository contactRepository;
     @Autowired
@@ -33,9 +35,9 @@ public class JobController {
         this.contactRepository = contactRepository;
     }
     /**
-     * Wire CompanyRepository
+     * Verbinde das CompanyRepository
      * @param companyRepository
-     * @return wired CompanyRepository
+     * @return verbundenes CompanyRepository
      */
     private CompanyRepository companyRepository;
     @Autowired
@@ -43,9 +45,9 @@ public class JobController {
         this.companyRepository = companyRepository;
     }
     /**
-     * Wire JobApplicationRepository
+     * Verbinde das JobApplicationRepository
      * @param jobApplicationRepository
-     * @return wired JobApplicationRepository
+     * @return verbundenes JobApplicationRepository
      */
     private JobApplicationRepository jobApplicationRepository;
     @Autowired
@@ -54,10 +56,10 @@ public class JobController {
     }
 
     /**
-     * List all existing JobApplications
+     * Liste alle vorhandenen JobApplications auf
      *
-     * @return all existing JobApplications
-     * @throws JobLoadException if something went wrong
+     * @return alle vorhandenen JobApplications
+     * @throws JobLoadException wenn etwas schiefläuft
      */
     @GetMapping("")
     public ResponseEntity<Iterable<JobApplication>> getAllJobApplications(){
@@ -72,12 +74,12 @@ public class JobController {
     }
 
     /**
-     * List specific JobApplication by ID
+     * Liste eine bestimmte JobApplication nach ID auf
      *
      * @param id
      *
-     * @return specific JobApplication
-     * @throws JobNotFoundException if something went wrong
+     * @return bestimmte JobApplication
+     * @throws JobNotFoundException wenn etwas schiefläuft
      */
     @GetMapping(path = "/id")
     public ResponseEntity<JobApplication> getJobApplicationById(@RequestParam int id){
@@ -92,7 +94,7 @@ public class JobController {
     }
 
     /**
-     * Add new JobApplication && new Company && new Contact
+     * Füge neue JobApplication && neue Firma && neuen Kontakt hinzu
      *
      * @param jobName
      * @param address
@@ -105,8 +107,8 @@ public class JobController {
      * @param fullname
      * @param tel
      * @param email
-     * @return new JobApplication && new Company && new Contact
-     * @throws JobCouldNotBeSavedException if something went wrong
+     * @return neue JobApplication, neue Firma und neuer Kontakt
+     * @throws JobCouldNotBeSavedException wenn etwas schiefläuft
      */
     @PostMapping(path = "")
     public ResponseEntity<String> addJobApplicationwithForeignData(@RequestParam String jobName,
@@ -136,7 +138,7 @@ public class JobController {
     }
 
     /**
-     * Add new JobApplication
+     * Fügt eine neue JobApplication hinzu.
      *
      * @param jobName
      * @param address
@@ -144,8 +146,8 @@ public class JobController {
      * @param status
      * @param contact_id
      * @param company_id
-     * @return new JobApplication
-     * @throws JobCouldNotBeSavedException if something went wrong
+     * @return neue JobApplication
+     * @throws JobCouldNotBeSavedException wenn etwas schiefläuft
      */
     @PostMapping(path = "/add")
     public ResponseEntity<String> addJobApplication(@RequestParam String jobName,
@@ -167,11 +169,11 @@ public class JobController {
     }
 
     /**
-     * Deletes JobApplication by ID
+     * Löscht eine JobApplication anhand ihrer ID.
      *
      * @param id
-     * @return deleted JobApplication
-     * @throws JobCouldNotBeDeletedException if something went wrong
+     * @return gelöschte JobApplication
+     * @throws JobCouldNotBeDeletedException wenn etwas schiefläuft
      */
     @DeleteMapping(path = "")
     public ResponseEntity<String> deleteJobApplication(@RequestParam int id){
@@ -184,14 +186,14 @@ public class JobController {
     }
 
     /**
-     * Update JobApplication by ID
+     * Aktualisiert eine JobApplication anhand ihrer ID.
      *
      * @param id
      * @param jobName
      * @param address
      * @param zip
-     * @return updated JobApplication
-     * @throws JobCouldNotBeUpdatedException if something went wrong
+     * @return aktualisierte JobApplication
+     * @throws JobCouldNotBeUpdatedException wenn etwas schiefläuft
      */
     @PutMapping(path = "")
     public ResponseEntity<String> updateJobApplication(@RequestParam int id,
@@ -210,5 +212,53 @@ public class JobController {
             throw new JobCouldNotBeUpdatedException(id);
         }
         return ResponseEntity.ok("Updated id: "+ id);
+    }
+    /**
+     * Aktualisiert eine JobApplication anhand ihrer ID und optionaler Parameter.
+     *
+     * @param id
+     * @param jobName
+     * @param address
+     * @param zip
+     * @return aktualisierte JobApplication
+     * @throws JobCouldNotBeUpdatedException wenn etwas schiefläuft
+     */
+    @PatchMapping(path = "")
+    public ResponseEntity<String> updateJobApplication(@RequestParam int id,
+                                                       @RequestParam(required = false) String jobName,
+                                                       @RequestParam(required = false) String address,
+                                                       @RequestParam(required = false) Integer zip){
+        JobApplication j = jobApplicationRepository.findById(id);
+        if (j == null) {
+            throw new JobCouldNotBeUpdatedException(id);
+        }
+        if (jobName != null && !jobName.equals(j.getJobName())) {
+            j.setJobName(jobName);
+        }
+        if (address != null && !address.equals(j.getAddress())) {
+            j.setAddress(address);
+        }
+        if (zip != null && !zip.equals(j.getZip())) {
+            j.setZip(zip);
+        }
+        j.setChanged(LocalDate.now());
+        jobApplicationRepository.save(j);
+        return ResponseEntity.ok("Updated id: "+ j.getId());
+    }
+
+    /**
+     * Löscht mehrere JobApplications anhand des Firmennamens.
+     *
+     * @param companyName
+     * @return gelöschte JobApplications
+     */
+    @DeleteMapping(path = "/delete")
+    public ResponseEntity<String> deleteMultipleJobsByCompanyName(@RequestParam String companyName){
+        try{
+            jobApplicationRepository.deleteAllByCompany_CompanyName(companyName);
+        }catch (Exception ex){
+            return ResponseEntity.badRequest().body("Could not delete");
+        }
+        return ResponseEntity.ok("Deleted");
     }
 }

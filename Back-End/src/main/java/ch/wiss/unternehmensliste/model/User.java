@@ -2,9 +2,14 @@ package ch.wiss.unternehmensliste.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Die User Klasse ist eine Entität und wird verwendet,
+ * um die Daten des Users in der Datenbank zu speichern.
+ */
 @Entity
 @Table(name = "user")
 public class User {

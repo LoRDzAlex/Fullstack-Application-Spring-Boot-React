@@ -1,6 +1,6 @@
+import * as React from "react";
 import {useEffect, useState} from "react";
 import {Collapse, IconButton} from '@mui/material';
-import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -14,6 +14,20 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ContactList from "./ContactList";
 import AuthService from "../api/auth/auth.service";
 
+/**
+ * Hier werden die Firmen in einer Liste angezeigt die per Knopfdruck ausgebreitet werden kann
+ * @param id - Die ID der Firma
+ * @param companyName - Der Name der Firma
+ * @param website - Die Webseite der Firma
+ * @param canton - Der Kanton, in dem die Firma ansässig ist
+ * @param contactName - Der Name des Ansprechpartners der Firma
+ * @param gender - Das Geschlecht des Ansprechpartners der Firma
+ * @param tel - Die Telefonnummer des Ansprechpartners der Firma
+ * @param email - Die E-Mail-Adresse des Ansprechpartners der Firma
+ * @param contactId - Die ID des Ansprechpartners der Firma
+ * @returns {JSX.Element} - Eine Tabelle der vorhandenen Firmen
+ * @constructor
+ */
 export const CompanyList = ({id, companyName, website, canton, contactName, gender, tel, email, contactId}) => {
     const [currentUser, setCurrentUser] = useState(undefined);
     const [showAdminOptions, setShowAdminOptions] = useState(false);

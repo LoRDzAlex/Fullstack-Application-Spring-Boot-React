@@ -7,7 +7,6 @@ import ch.wiss.unternehmensliste.exception.load.ContactLoadException;
 import ch.wiss.unternehmensliste.exception.notfound.ContactNotFoundException;
 import ch.wiss.unternehmensliste.model.Contact;
 import ch.wiss.unternehmensliste.repository.ContactRepository;
-import org.mariadb.jdbc.message.client.ResetPacket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -19,9 +18,9 @@ import org.springframework.web.bind.annotation.*;
 public class ContactController {
 
     /**
-     * Wire ContactRepository
+     * Verbindet das ContactRepository
      * @param contactRepository
-     * @return wired ContactRepository
+     * @return verbundenes ContactRepository
      */
     private ContactRepository contactRepository;
     @Autowired
@@ -30,10 +29,10 @@ public class ContactController {
     }
 
     /**
-     * List all existing Contact
+     * Listet alle vorhandenen Kontakte auf
      *
-     * @return all existing Contact
-     * @throws ContactLoadException if something went wrong
+     * @return alle vorhandenen Kontakte
+     * @throws ContactLoadException wenn etwas schiefläuft
      */
     @GetMapping("")
     public ResponseEntity<Iterable<Contact>> getAllContacts(){
@@ -48,12 +47,12 @@ public class ContactController {
     }
 
     /**
-     * List specific Contact by ID
+     * Listet einen spezifischen Kontakt anhand seiner ID auf
      *
      * @param id
      *
-     * @return specific Contact
-     * @throws ContactNotFoundException if something went wrong
+     * @return spezifischer Kontakt
+     * @throws ContactNotFoundException wenn etwas schiefläuft
      */
     @GetMapping(path = "/id")
     public ResponseEntity<Contact> getContactById(@RequestParam int id){
@@ -68,12 +67,12 @@ public class ContactController {
     }
 
     /**
-     * List specific Contact by Email
+     * Listet einen spezifischen Kontakt anhand seiner E-Mail-Adresse auf
      *
      * @param email
      *
-     * @return specific Contact
-     * @throws ContactNotFoundException if something went wrong
+     * @return spezifischer Kontakt
+     * @throws ContactNotFoundException wenn etwas schiefläuft
      */
     @GetMapping(path = "/email")
     public ResponseEntity<Contact> getContactByEmail(@RequestParam String email) {
@@ -89,14 +88,14 @@ public class ContactController {
     }
 
     /**
-     * Creates new Contact
+     * Erstellt einen neuen Kontakt
      *
      * @param contactName
      * @param gender
      * @param tel
      * @param email
-     * @return new Contact
-     * @throws ContactCouldNotBeSavedException if something went wrong
+     * @return neuer Kontakt
+     * @throws ContactCouldNotBeSavedException wenn etwas schiefläuft
      */
     @PostMapping(path = "")
     public ResponseEntity<String> createContact(
@@ -115,11 +114,11 @@ public class ContactController {
     }
 
     /**
-     * Deletes Contact by ID
+     * Löscht einen Kontakt anhand seiner ID
      *
      * @param id
-     * @return deleted Contact
-     * @throws ContactCouldNotBeDeletedException if something went wrong
+     * @return gelöschter Kontakt
+     * @throws ContactCouldNotBeDeletedException wenn etwas schiefläuft
      */
     @DeleteMapping(path = "")
     public ResponseEntity<String> deleteContact(@RequestParam int id){
@@ -132,18 +131,18 @@ public class ContactController {
     }
 
     /**
-     * Updates Contact by ID
+     * Updated einen Kontakt anhand der ID
      *
      * @param id
      * @param contactName
      * @param gender
      * @param tel
      * @param email
-     * @return updated Contact
-     * @throws ContactCouldNotBeUpdatedException if something went wrong
+     * @return updated Kontakt
+     * @throws ContactCouldNotBeUpdatedException wenn etwas schiefläuft
      */
     @PutMapping(path = "")
-    public ResponseEntity<String> updateContact(@RequestParam int id,
+    public ResponseEntity<String> updateContactOld(@RequestParam int id,
                                                 @RequestParam String contactName,
                                                 @RequestParam String gender,
                                                 @RequestParam String tel,
@@ -159,5 +158,41 @@ public class ContactController {
             throw new ContactCouldNotBeUpdatedException(id);
         }
         return ResponseEntity.ok("Updated "+ contactName);
+    }
+
+    /**
+     * Updated einen Kontakt anhand der ID
+     * @param id
+     * @param contactName
+     * @param gender
+     * @param tel
+     * @param email
+     * @return updated Kontakt
+     * @throws ContactCouldNotBeUpdatedException wenn etwas schiefläuft
+     */
+    @PatchMapping(path = "")
+    public ResponseEntity<String> updateContact(@RequestParam int id,
+                                                @RequestParam(required = false) String contactName,
+                                                @RequestParam(required = false) String gender,
+                                                @RequestParam(required = false) String tel,
+                                                @RequestParam(required = false) String email){
+        Contact c = contactRepository.findById(id);
+        if (c == null) {
+            throw new ContactCouldNotBeUpdatedException(id);
+        }
+        if (contactName != null && !contactName.equals(c.getContactName())) {
+            c.setContactName(contactName);
+        }
+        if (gender != null && !gender.equals(c.getGender())) {
+            c.setGender(gender);
+        }
+        if (tel != null && !tel.equals(c.getTel())) {
+            c.setTel(tel);
+        }
+        if (email != null && !email.equals(c.getEmail())) {
+            c.setEmail(email);
+        }
+        contactRepository.save(c);
+        return ResponseEntity.ok("Updated "+ c.getContactName());
     }
 }

@@ -2,7 +2,7 @@ package ch.wiss.unternehmensliste.exception.load;
 
 public class CompanyLoadException extends RuntimeException {
     /**
-     * Handles an Exception that accuses while loading an CompanyAccount
+     * Diese Exception wird geworfen, wenn die Unternehmen nicht geladen werden können
      *
      *
      * @return Exception Message

@@ -2,7 +2,7 @@ package ch.wiss.unternehmensliste.exception.notfound;
 
 public class CompanyNotFoundException extends RuntimeException {
     /**
-     * Handles an Exception that accuses while searching an CompanyAccount with the ID
+     * Diese Exception wird geworfen, wenn ein Unternehmen nicht gefunden werden kann
      *
      * @param companyId
      *

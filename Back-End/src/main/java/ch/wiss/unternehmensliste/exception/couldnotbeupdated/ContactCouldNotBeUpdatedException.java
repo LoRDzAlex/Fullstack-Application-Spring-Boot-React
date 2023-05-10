@@ -2,7 +2,7 @@ package ch.wiss.unternehmensliste.exception.couldnotbeupdated;
 
 public class ContactCouldNotBeUpdatedException extends RuntimeException{
     /**
-     * Handles an Exception that accuses while updating a Contact
+     * Diese Exception wird geworfen, wenn ein Kontakt nicht aktualisiert werden kann
      *
      * @param id
      *

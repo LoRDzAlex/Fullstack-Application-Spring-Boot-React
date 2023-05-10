@@ -8,12 +8,12 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import {getCurrentUserToken} from "../api/auth/auth.service";
 
 /**
- * Hier kann per ID ein JobEintrag gelöscht werden
- * @param id - Die ID des Jobeintrages
- * @returns {JSX.Element} - Ein IconButton zur löschung
+ * Hier kann ein User per ID gelöscht werden
+ * @param id - Die ID des Users
+ * @returns {JSX.Element} - Einen IconButton zur löschung
  * @constructor
  */
-export const JobDelete = ({id}) => {
+export const UserDelete = ({id}) => {
 
     const [open, setOpen] = React.useState(false);
 
@@ -26,7 +26,7 @@ export const JobDelete = ({id}) => {
     };
 
     function handleDelete(id) {
-        fetch(`http://localhost:8080/job?id=${id}`, {
+        fetch(`http://localhost:8080/api/test/user/${id}`, {
             method: 'DELETE',
             redirect: 'follow',
             headers: {
@@ -66,4 +66,4 @@ export const JobDelete = ({id}) => {
 
 
 }
-export default JobDelete
+export default UserDelete

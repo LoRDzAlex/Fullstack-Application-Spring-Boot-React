@@ -2,6 +2,10 @@ package ch.wiss.unternehmensliste.payload.response;
 
 import java.util.List;
 
+/**
+ * Die JwtResponse Klasse wird verwendet, um die Daten des Users als JSON-Objekt zurückzugeben.
+ * Dies wird verwendet, um dem User die Daten zu senden, wenn er sich einloggt.
+ */
 public class JwtResponse {
     private String token;
     private String type = "Bearer";

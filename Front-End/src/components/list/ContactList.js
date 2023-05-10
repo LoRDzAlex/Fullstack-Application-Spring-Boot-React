@@ -1,5 +1,6 @@
 import {Collapse} from '@mui/material';
 import * as React from 'react';
+import {useEffect, useState} from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,9 +9,19 @@ import TableRow from '@mui/material/TableRow';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import FormUpdateContactDialog from "../update/FormUpdateContactDialog"
-import {useEffect, useState} from "react";
 import AuthService from "../api/auth/auth.service";
 
+/**
+ * Hier wird eine Tabelle mit Firmenkontakte geladen
+ * @param id - ID des Kontakts
+ * @param gender - Geschlecht des Kontakts
+ * @param contactName - Name des Kontakts
+ * @param tel - Telefonnummer des Kontakts
+ * @param email - E-Mail-Adresse des Kontakts
+ * @param expanded - Boolean-Wert, der angibt, ob die Zeile mit der Tabelle erweitert ist oder nicht
+ * @returns {JSX.Element} - Eine Tabelle mit vorhandenen Kontakten
+ * @constructor
+ */
 export const ContactList = ({id, gender, contactName, tel, email, expanded}) => {
 
     const [currentUser, setCurrentUser] = useState(undefined);

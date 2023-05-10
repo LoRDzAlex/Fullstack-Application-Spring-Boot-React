@@ -3,8 +3,13 @@ package ch.wiss.unternehmensliste.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+
 import java.util.Objects;
 
+/**
+ * Die Contact Klasse ist eine Entität und wird verwendet,
+ * um die Daten der Kontakte in der Datenbank zu speichern.
+ */
 @Entity
 @Table(name = "contact")
 public class Contact {

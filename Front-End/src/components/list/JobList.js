@@ -1,5 +1,5 @@
+import * as React from "react";
 import {useEffect, useState} from "react";
-import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,12 +8,18 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import FormUpdateDialog from "../update/FormUpdateDialog";
-import CompanyList from "./CompanyList";
 import styles from "../css/table.css"
 import JobDelete from "../delete/JobDelete";
-import AuthService, {getCurrentUserToken} from "../api/auth/auth.service";
+import AuthService from "../api/auth/auth.service";
+import CompanyContactList from "./CompanyContactList";
+import Typography from "@mui/material/Typography";
+import FormCreateDialog from "../create/FormCreateDialog";
 
-
+/**
+ *  Hier werden die Job Einträge geholt und in die Tabellen geladen
+ * @returns {JSX.Element} - Eine Tabelle mit den Praktika
+ * @constructor
+ */
 export const JobList = () => {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -35,8 +41,7 @@ export const JobList = () => {
             redirect: 'follow',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + getCurrentUserToken(),
+                'Content-Type': 'application/json'
             },
         })
             .then(res => res.json())
@@ -52,7 +57,11 @@ export const JobList = () => {
             )
     }, [])
 
-
+    /**
+     * Prüft, ob ein Fehler aufgetreten ist und gibt eine Fehlermeldung aus, wenn dies der Fall ist.
+     * Zeigt ansonsten eine Ladeanzeige, bis die Daten geladen sind.
+     * Wenn die Daten vorhanden sind, werden sie in einer Tabelle dargestellt.
+     */
    if (error) {
         return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -61,37 +70,37 @@ export const JobList = () => {
         return (
 
             <TableContainer component={Paper} className={styles.TableContainer}>
-
+                <Typography variant="h6" gutterBottom component="div" align="left">
+                    Praktikumsliste
+                    {showAdminOptions &&(
+                    <FormCreateDialog/>
+                    )}
+                </Typography>
                 <Table aria-label="collapsible table" className={styles.Table}>
 
-                    <TableHead>
+                    <TableHead sx={{ bgcolor: "#eaeaea" }}>
                         <TableRow>
-                            <TableCell>JobListing</TableCell>
-                            <TableCell align="right">Job Name</TableCell>
-                            <TableCell align="right">Address</TableCell>
-                            <TableCell align="right">Zip</TableCell>
-                            <TableCell align="right">Status</TableCell>
-                            <TableCell align="right">Changed</TableCell>
-                            <TableCell align="right">Created</TableCell>
-                            <TableCell align="right"></TableCell>
+                            <TableCell>Berufsbezeichnung</TableCell>
+                            <TableCell>Adresse</TableCell>
+                            <TableCell>PLZ</TableCell>
+                            <TableCell>Status</TableCell>
+                            <TableCell>Geändert</TableCell>
+                            <TableCell>Erstellt</TableCell>
+                            <TableCell></TableCell>
                         </TableRow>
                     </TableHead>
                     {lists.map((list) => (
                     <TableBody>
-
                             <TableRow
                                 key={list.id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 }  }}
                             >
-                                <TableCell component="th" scope="row" >
-
-                                </TableCell>
-                                <TableCell align="right">{list.jobName || "nicht vorhanden"}</TableCell>
-                                <TableCell align="right">{list.address || "nicht vorhanden"}</TableCell>
-                                <TableCell align="right">{list.zip || "nicht vorhanden"}</TableCell>
-                                <TableCell align="right">{list.status || "nicht vorhanden"}</TableCell>
-                                <TableCell align="right">{list.changed || "nicht vorhanden"}</TableCell>
-                                <TableCell align="right">{list.created || "nicht vorhanden"}</TableCell>
+                                <TableCell>{list.jobName || "nicht vorhanden"}</TableCell>
+                                <TableCell>{list.address || "nicht vorhanden"}</TableCell>
+                                <TableCell>{list.zip || "nicht vorhanden"}</TableCell>
+                                <TableCell>{list.status || "nicht vorhanden"}</TableCell>
+                                <TableCell>{list.changed || "nicht vorhanden"}</TableCell>
+                                <TableCell>{list.created || "nicht vorhanden"}</TableCell>
                                 {showAdminOptions && (
                                 <TableCell>
                                     <FormUpdateDialog id={list.id} jobName={list.jobName} address={list.address} zip={list.zip} status={list.status}/>
@@ -99,7 +108,7 @@ export const JobList = () => {
                                 </TableCell>
                                 )}
                             </TableRow>
-                        <CompanyList id={list.company.id} companyName={list.company.companyName} website={list.company.website} canton={list.company.canton} contactId={list.contact.id} contactName={list.contact.contactName} gender={list.contact.gender} email={list.contact.email} tel={list.contact.tel}/>
+                        <CompanyContactList id={list.company.id} companyName={list.company.companyName} website={list.company.website} canton={list.company.canton} contactId={list.contact.id} contactName={list.contact.contactName} gender={list.contact.gender} email={list.contact.email} tel={list.contact.tel}/>
                     </TableBody>))}
                     </Table>
             </TableContainer>

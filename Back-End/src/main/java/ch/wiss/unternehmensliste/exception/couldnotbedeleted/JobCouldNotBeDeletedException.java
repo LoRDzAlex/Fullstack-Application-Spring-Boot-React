@@ -2,7 +2,7 @@ package ch.wiss.unternehmensliste.exception.couldnotbedeleted;
 
 public class JobCouldNotBeDeletedException extends RuntimeException{
     /**
-     * Handles an Exception that accuses while deleting a Job
+     * Diese Exception wird geworfen, wenn ein Job nicht gelöscht werden kann
      *
      * @param id
      *

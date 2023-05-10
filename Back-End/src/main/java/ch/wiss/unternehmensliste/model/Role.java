@@ -2,6 +2,10 @@ package ch.wiss.unternehmensliste.model;
 
 import jakarta.persistence.*;
 
+/**
+ * Die Role Klasse ist eine Entität und wird verwendet um, die
+ * Daten der Rollen in der Datenbank zu speichern.
+ */
 @Entity
 @Table(name = "role")
 public class Role {

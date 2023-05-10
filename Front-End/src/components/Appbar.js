@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useEffect, useState} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,9 +14,13 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import {useNavigate} from "react-router-dom";
-import {useEffect, useState} from "react";
 import AuthService from "./api/auth/auth.service";
 
+/**
+ *  Hier wird die Appbar geladen die je nach anwender verschiedene Funktionen beinhaltet
+ * @returns {JSX.Element} - Eine Appbar mit verschiedenen Funktionen
+ * @constructor
+ */
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);

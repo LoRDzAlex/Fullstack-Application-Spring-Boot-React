@@ -2,7 +2,7 @@ package ch.wiss.unternehmensliste.exception.couldnotbeupdated;
 
 public class JobCouldNotBeUpdatedException extends RuntimeException{
     /**
-     * Handles an Exception that accuses while updating a Job
+     * Diese Exception wird geworfen, wenn ein Job nicht aktualisiert werden kann
      *
      * @param id
      *
