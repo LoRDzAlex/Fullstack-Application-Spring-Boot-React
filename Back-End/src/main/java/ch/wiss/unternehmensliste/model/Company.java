@@ -7,6 +7,10 @@ import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
 
+/**
+ * Die Company Klasse ist eine Entität und wird verwendet,
+ * um die Daten der Unternehmen in der Datenbank zu speichern.
+ */
 @Entity
 @Table(name = "company")
 public class Company {
@@ -15,7 +19,7 @@ public class Company {
     private @Id Integer id;
 
     @NotNull
-    @Size(min = 5, max = 30, message = "companyName should be between 5 and 30 characters")
+    @Size(min = 2, max = 30, message = "companyName should be between 2 and 30 characters")
     private String companyName;
 
     @NotNull
@@ -23,7 +27,7 @@ public class Company {
     private String website;
 
     @NotNull
-    @Size(min = 5, max = 50, message = "enter valid canton")
+    @Size(min = 2, max = 50, message = "enter valid canton")
     private String canton;
 
     public Company(String companyName, String website, String canton) {

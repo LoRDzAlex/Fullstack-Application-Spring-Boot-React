@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useState} from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -7,10 +8,17 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import EditIcon from "@mui/icons-material/Edit";
 import {IconButton} from "@mui/material";
-import {useState} from "react";
 import {getCurrentUserToken} from "../api/auth/auth.service";
 
-
+/**
+ * Hier wird das Dialog-Fenster für das Updaten einer Firma erstellt.
+ * @param id - ID der Firma
+ * @param companyName - Name der Firma
+ * @param website - Website der Firma
+ * @param canton - Kanton der Firma
+ * @returns {JSX.Element} - Dialog-Fenster für das Updaten einer Firma
+ * @constructor
+ */
 export const FormUpdateCompanyDialog = ({id, companyName, website, canton}) =>{
     const [open, setOpen] = useState(false);
     const [error, setError] = useState(null);
@@ -28,7 +36,7 @@ export const FormUpdateCompanyDialog = ({id, companyName, website, canton}) =>{
 
     function handleUpdate(id, companyName, website, canton){
         fetch(`http://localhost:8080/company?id=${id}&companyName=${companyName}&website=${website}&canton=${canton}`, {
-            method: 'PUT',
+            method: 'PATCH',
             redirect: 'follow',
             headers: {
                 'Accept': 'application/json',
@@ -48,7 +56,7 @@ export const FormUpdateCompanyDialog = ({id, companyName, website, canton}) =>{
         return <div>Error: {error.message}</div>;
     }
     return (
-        <div>
+        <>
             <IconButton onClick={() => handleClickOpen()}>
                 <EditIcon/>
             </IconButton>
@@ -95,7 +103,7 @@ export const FormUpdateCompanyDialog = ({id, companyName, website, canton}) =>{
                     <Button onClick={() => {handleUpdate(id, cn, wb, ct); handleClose(); window.location.reload();}}>Update</Button>
                 </DialogActions>
             </Dialog>
-        </div>
+        </>
     );
 }
 export default FormUpdateCompanyDialog

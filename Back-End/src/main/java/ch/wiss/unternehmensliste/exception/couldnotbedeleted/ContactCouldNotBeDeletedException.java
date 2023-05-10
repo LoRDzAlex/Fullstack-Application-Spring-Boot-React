@@ -2,7 +2,7 @@ package ch.wiss.unternehmensliste.exception.couldnotbedeleted;
 
 public class ContactCouldNotBeDeletedException extends RuntimeException{
     /**
-     * Handles an Exception that accuses while deleting a Contact
+     * Diese Exception wird geworfen, wenn ein Kontakt nicht gelöscht werden kann
      *
      * @param id
      *

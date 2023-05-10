@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * Das RoleRepository Interface ist eine Erweiterung des JpaRepository Interfaces.
+ * Es wird verwendet, um die Datenbankabfragen für die Role-Objekte zu definieren.
+ */
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
     @Override

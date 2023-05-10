@@ -2,7 +2,7 @@ package ch.wiss.unternehmensliste.exception.couldnotbesaved;
 
 public class ContactCouldNotBeSavedException extends RuntimeException{
     /**
-     * Handles an Exception that accuses while saving a Contact
+     * Diese Exception wird geworfen, wenn ein Kontakt nicht gespeichert werden kann
      *
      * @param contactName
      *
@@ -13,7 +13,7 @@ public class ContactCouldNotBeSavedException extends RuntimeException{
     }
 
     /**
-     * Handles an Exception that accuses while saving a Contact
+     * Diese Exception wird geworfen, wenn ein Kontakt nicht gespeichert werden kann
      *
      *
      * @return Exception Message

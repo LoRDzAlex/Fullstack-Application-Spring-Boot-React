@@ -2,7 +2,7 @@ package ch.wiss.unternehmensliste.exception.load;
 
 public class ContactLoadException extends RuntimeException {
     /**
-     * Handles an Exception that accuses while loading an ContactAccount
+     * Diese Exception wird geworfen, wenn die Kontakte nicht geladen werden können
      *
      *
      * @return Exception Message

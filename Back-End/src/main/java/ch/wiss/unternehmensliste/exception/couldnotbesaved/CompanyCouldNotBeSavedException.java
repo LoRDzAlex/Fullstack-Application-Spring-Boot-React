@@ -2,7 +2,7 @@ package ch.wiss.unternehmensliste.exception.couldnotbesaved;
 
 public class CompanyCouldNotBeSavedException extends RuntimeException{
     /**
-     * Handles an Exception that accuses while saving a Company
+     * Diese Exception wird geworfen, wenn ein Unternehmen nicht gespeichert werden kann
      *
      * @param companyName
      *
@@ -13,7 +13,7 @@ public class CompanyCouldNotBeSavedException extends RuntimeException{
     }
 
     /**
-     * Handles an Exception that accuses while saving a Company
+     * Diese Exception wird geworfen, wenn ein Unternehmen nicht gespeichert werden kann
      *
      *
      * @return Exception Message

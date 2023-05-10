@@ -1,17 +1,16 @@
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import {IconButton} from "@mui/material";
 import * as React from "react";
 import {getCurrentUserToken} from "../api/auth/auth.service";
+import Button from "@mui/material/Button";
 
 /**
- * Hier kann per ID ein FirmenKontakt gelöscht werden
- * @param id - Die ID des Firmenkontakts
+ * Hier kann per namen alle beiträge einer Firma gelöscht werden.
+ * @param name - Der Name der Firma
  * @returns {JSX.Element} - Ein IconButton zur löschung
  * @constructor
  */
-export const ContactDelete = ({id}) => {
-    function handleContactDelete(id) {
-        fetch(`http://localhost:8080/contact?id=${id}`, {
+export const CompanyListingDelete = (name) => {
+    function handleCompanyDelete(name) {
+        fetch(`http://localhost:8080/job/delete?companyName=${name}`, {
             method: 'DELETE',
             redirect: 'follow',
             headers: {
@@ -20,16 +19,18 @@ export const ContactDelete = ({id}) => {
                 'Authorization': 'Bearer ' + getCurrentUserToken(),
             },
         }).then(res => {
-            return res.json()
+            return console.log(res.json())
         })
         return console.log("Success")
     }
 
-    return (
-        <IconButton onClick={() => {
-            handleContactDelete(id);
+    return(
+        <Button onClick={() => {
+            handleCompanyDelete(name);
             window.location.reload();
         }}>
-            <DeleteOutlineIcon/>
-        </IconButton>);
+            Sperren der Firma
+        </Button>
+    );
 }
+export default CompanyListingDelete

@@ -5,6 +5,10 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.time.LocalDateTime;
 
+/**
+ * Das JobApplicationRepository Interface ist eine Erweiterung des CrudRepository Interfaces.
+ * Es wird verwendet, um die Datenbankabfragen für die JobApplication-Objekte zu definieren.
+ */
 public interface JobApplicationRepository extends CrudRepository<JobApplication, Integer> {
     JobApplication findByAddress(String address);
 
@@ -16,5 +20,6 @@ public interface JobApplicationRepository extends CrudRepository<JobApplication,
 
     Iterable<JobApplication> findAllByJobName(String jobName);
 
+    Iterable<JobApplication> deleteAllByCompany_CompanyName(String companyName);
     Iterable<JobApplication> findAllByChanged(LocalDateTime changed);
 }

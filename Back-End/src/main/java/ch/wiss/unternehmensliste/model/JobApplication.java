@@ -1,16 +1,20 @@
 package ch.wiss.unternehmensliste.model;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Range;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+/**
+ * Die JobApplication Klasse ist eine Entität und wird verwendet,
+ * um die Daten der Bewerbungen in der Datenbank zu speichern.
+ */
 @Entity
 @Table(name = "job")
 public class JobApplication {

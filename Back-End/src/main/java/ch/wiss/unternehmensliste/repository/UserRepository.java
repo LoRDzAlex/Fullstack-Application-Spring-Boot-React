@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * Das UserRepository Interface ist eine Erweiterung des JpaRepository Interfaces.
+ * Es wird verwendet, um die Datenbankabfragen für die User-Objekte zu definieren.
+ */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     @Override
