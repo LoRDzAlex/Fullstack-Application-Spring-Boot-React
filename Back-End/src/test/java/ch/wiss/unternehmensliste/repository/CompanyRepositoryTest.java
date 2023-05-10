@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 /*
-    TODO; kommentieren
+    Hier sind die JUnit Tests für die CompanyRepository, die testen die Grundfunktionen der CRUDRepository
  */
 
 @DataJpaTest
@@ -24,7 +24,7 @@ class CompanyRepositoryTest {
 
 
     /**
-     * JUnit test for saving a Company
+     * um eine Company zu speichern
      */
 
     @Test
@@ -39,7 +39,7 @@ class CompanyRepositoryTest {
     }
 
     /**
-     * JUnit test for getting a Company
+     * Um eine Company zu finden
      */
     @Test
     public void getCompanyTest(){
@@ -54,7 +54,7 @@ class CompanyRepositoryTest {
     }
 
     /**
-     * JUnit test for getting a List of the Company
+     * Um eine Liste von Companies zu finden
      */
     @Test
     public void getListOfCompanysTest(){
@@ -67,7 +67,7 @@ class CompanyRepositoryTest {
     }
 
     /**
-     * JUnit test for updating a Company
+     * Um eine Company zu aktualisieren
      */
     @Test
     public void updateCompanyTest(){
@@ -82,7 +82,7 @@ class CompanyRepositoryTest {
     }
 
     /**
-     * JUnit test for deleting a Company
+     * Um eine Company zu löschen
      */
     @Test
     public void deleteCompanyTest(){
