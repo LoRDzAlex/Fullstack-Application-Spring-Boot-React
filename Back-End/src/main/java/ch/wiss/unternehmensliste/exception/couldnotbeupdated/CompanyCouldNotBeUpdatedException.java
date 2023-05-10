@@ -2,7 +2,7 @@ package ch.wiss.unternehmensliste.exception.couldnotbeupdated;
 
 public class CompanyCouldNotBeUpdatedException extends RuntimeException{
     /**
-     * Handles an Exception that accuses while updating a Company
+     * Diese Exception wird geworfen, wenn ein Unternehmen nicht aktualisiert werden kann
      *
      * @param id
      *

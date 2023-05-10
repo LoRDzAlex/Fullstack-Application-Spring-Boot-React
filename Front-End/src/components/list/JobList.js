@@ -15,7 +15,11 @@ import CompanyContactList from "./CompanyContactList";
 import Typography from "@mui/material/Typography";
 import FormCreateDialog from "../create/FormCreateDialog";
 
-
+/**
+ *  Hier werden die Job Einträge geholt und in die Tabellen geladen
+ * @returns {JSX.Element} - Eine Tabelle mit den Praktika
+ * @constructor
+ */
 export const JobList = () => {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -53,7 +57,11 @@ export const JobList = () => {
             )
     }, [])
 
-
+    /**
+     * Prüft, ob ein Fehler aufgetreten ist und gibt eine Fehlermeldung aus, wenn dies der Fall ist.
+     * Zeigt ansonsten eine Ladeanzeige, bis die Daten geladen sind.
+     * Wenn die Daten vorhanden sind, werden sie in einer Tabelle dargestellt.
+     */
    if (error) {
         return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {

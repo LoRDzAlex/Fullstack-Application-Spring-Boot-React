@@ -8,6 +8,13 @@ import TableBody from "@mui/material/TableBody";
 import Table from "@mui/material/Table";
 import UserDelete from "../delete/UserDelete";
 
+/**
+ Zeigt eine Tabelle mit allen Userdaten und Rollen an.
+ Erlaubt das Löschen von einzelnen Usern.
+ @returns {JSX.Element} - Eine Tabellenansicht der User mit zusätzliche Optionen
+ @constructor
+ */
+
 const AdminOptions = () => {
     const navigate = useNavigate();
     const [currentUser, setCurrentUser] = useState(undefined);

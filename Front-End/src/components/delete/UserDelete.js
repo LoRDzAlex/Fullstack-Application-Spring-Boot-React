@@ -7,6 +7,12 @@ import {IconButton} from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import {getCurrentUserToken} from "../api/auth/auth.service";
 
+/**
+ * Hier kann ein User per ID gelöscht werden
+ * @param id - Die ID des Users
+ * @returns {JSX.Element} - Einen IconButton zur löschung
+ * @constructor
+ */
 export const UserDelete = ({id}) => {
 
     const [open, setOpen] = React.useState(false);

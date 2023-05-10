@@ -2,7 +2,7 @@ package ch.wiss.unternehmensliste.exception.load;
 
 public class JobLoadException extends RuntimeException {
     /**
-     * Handles an Exception that accuses while loading a Job
+     * Diese Exception wird geworfen, wenn die Jobs nicht geladen werden können
      *
      *
      * @return Exception Message

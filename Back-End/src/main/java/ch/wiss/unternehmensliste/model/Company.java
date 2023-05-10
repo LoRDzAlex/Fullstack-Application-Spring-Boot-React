@@ -7,6 +7,10 @@ import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
 
+/**
+ * Die Company Klasse ist eine Entität und wird verwendet,
+ * um die Daten der Unternehmen in der Datenbank zu speichern.
+ */
 @Entity
 @Table(name = "company")
 public class Company {

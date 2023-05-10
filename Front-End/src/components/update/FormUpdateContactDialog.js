@@ -10,7 +10,16 @@ import EditIcon from "@mui/icons-material/Edit";
 import {IconButton} from "@mui/material";
 import {getCurrentUserToken} from "../api/auth/auth.service";
 
-
+/**
+ * Hier wird das Dialog-Fenster für das Updaten eines Kontakts erstellt.
+ * @param id - ID des Kontakts
+ * @param gender - Geschlecht des Kontakts
+ * @param contactName - Name des Kontakts
+ * @param tel - Telefonnummer des Kontakts
+ * @param email - E-Mail-Adresse des Kontakts
+ * @returns {JSX.Element} - Dialog-Fenster für das Updaten eines Kontakts
+ * @constructor
+ */
 export const FormUpdateCompanyDialog = ({id, gender, contactName, tel, email}) =>{
     const [open, setOpen] = useState(false);
     const [error, setError] = useState(null);

@@ -1,7 +1,6 @@
 package ch.wiss.unternehmensliste.exception.couldnotbedeleted;
 /**
  * Exceptionklasse für Unternehmen, die nicht gelöscht werden können
- *
  */
 
 

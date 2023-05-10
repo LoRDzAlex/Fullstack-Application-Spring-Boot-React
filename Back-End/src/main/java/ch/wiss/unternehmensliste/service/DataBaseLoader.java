@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.HashSet;
 
 /**
- * Loading TestData into Database
+ * Die DataBaseLoader Klasse wird verwendet, um die Datenbank mit Testdaten zu füllen.
  */
 
 @Component
@@ -35,9 +35,12 @@ public class DataBaseLoader implements CommandLineRunner {
         this.roleRepository = roleRepository;
         this.userRepository = userRepository;
     }
-
+    //Hier werden die Testdaten erstellt und in die Datenbank gespeichert.
     @Override
     public void run(String... strings) throws Exception {
+        if(roleRepository.count() > 0) {
+            return;
+        }
         this.roleRepository.save(new Role(Role.ERole.ROLE_USER));
         this.roleRepository.save(new Role(Role.ERole.ROLE_ADMIN));
         this.roleRepository.save(new Role(Role.ERole.ROLE_COMPANY));

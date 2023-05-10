@@ -10,6 +10,14 @@ import {DialogContentText, IconButton} from "@mui/material";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import {getCurrentUserToken} from "../api/auth/auth.service";
 
+/**
+ * Komponente für das Erstellen eines neuen Jobs.
+ *
+ * @returns {JSX.Element} JSX-Element mit einem Button, der ein Dialogfenster öffnet
+ *          und ein Formular zum Erstellen eines neuen Jobs enthält
+ * @constructor
+ */
+
 export default function FormCreateDialog() {
     const [open, setOpen] = React.useState(false);
     const [error, setError] = useState(null);
@@ -25,15 +33,30 @@ export default function FormCreateDialog() {
     const [tel, setTel] = useState('');
     const [email, setEmail] = useState('');
 
-
+    // Öffnet das Dialog-Fenster für das Erstellen eines neuen Jobs.
     const handleClickOpen = () => {
         setOpen(true);
     };
-
+    // Schließt das Dialog-Fenster.
     const handleClose = () => {
         setOpen(false);
     };
 
+    /**
+     * Erstellt einen neuen Job mit den eingegebenen Daten.
+     *
+     * @param {string} jobName - Berufsbezeichnung des Jobs
+     * @param {string} address - Adresse des Jobs
+     * @param {string} zip - PLZ des Jobs
+     * @param {string} status - Status des Jobs
+     * @param {string} companyname - Firmenname des Jobs
+     * @param {string} website - Website der Firma des Jobs
+     * @param {string} canton - Kanton des Jobs
+     * @param {string} gender - Geschlecht des Kontakts des Jobs
+     * @param {string} fullname - Vor- und Nachname des Kontakts des Jobs
+     * @param {string} tel - Telefonnummer des Kontakts des Jobs
+     * @param {string} email - E-Mail-Adresse des Kontakts des Jobs
+     */
     function handleCreate(jobName, address, zip, status, companyname, website, canton, gender, fullname, tel, email){
         fetch(`http://localhost:8080/job?jobName=${jobName}&address=${address}&zip=${zip}&status=${status}&companyName=${companyname}&website=${website}&canton=${canton}&gender=${gender}&fullname=${fullname}&tel=${tel}&email=${email}`, {
             method: 'POST',

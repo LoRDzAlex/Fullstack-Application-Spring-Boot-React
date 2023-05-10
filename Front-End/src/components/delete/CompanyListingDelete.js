@@ -2,6 +2,12 @@ import * as React from "react";
 import {getCurrentUserToken} from "../api/auth/auth.service";
 import Button from "@mui/material/Button";
 
+/**
+ * Hier kann per namen alle beiträge einer Firma gelöscht werden.
+ * @param name - Der Name der Firma
+ * @returns {JSX.Element} - Ein IconButton zur löschung
+ * @constructor
+ */
 export const CompanyListingDelete = (name) => {
     function handleCompanyDelete(name) {
         fetch(`http://localhost:8080/job/delete?companyName=${name}`, {

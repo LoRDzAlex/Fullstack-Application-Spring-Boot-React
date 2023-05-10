@@ -10,6 +10,8 @@ import ch.wiss.unternehmensliste.repository.RoleRepository;
 import ch.wiss.unternehmensliste.repository.UserRepository;
 import ch.wiss.unternehmensliste.security.jwt.JwtUtils;
 import ch.wiss.unternehmensliste.security.services.UserDetailsImpl;
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,14 +22,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.transaction.Transactional;
-import jakarta.validation.Valid;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-
+/**
+ Der AuthController behandelt die Authentifizierung von Benutzern sowie die Registrierung neuer Benutzer
+ */
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")

@@ -3,8 +3,13 @@ package ch.wiss.unternehmensliste.payload.request;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+
 import java.util.Set;
 
+/**
+ * Die SignupRequest Klasse wird verwendet, um die Daten des Users als JSON-Objekt zu erhalten.
+ * Dies wird verwendet, um dem User die Daten zu senden, wenn er sich registriert.
+ */
 public class SignupRequest {
     @NotBlank
     @Size(min = 3, max = 20)

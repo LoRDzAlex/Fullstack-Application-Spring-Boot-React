@@ -1,20 +1,24 @@
 import * as React from 'react';
+import {useState} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {useState} from "react";
+import {createTheme, ThemeProvider} from '@mui/material/styles';
 import {useNavigate} from "react-router-dom";
 
+/**
+ * Diese Funktion erstellt das Registrieren.
+ * @param props - Eigenschaften des Registrierens
+ * @returns {JSX.Element} - Registrieren
+ * @constructor
+ */
 function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -37,7 +41,7 @@ export default function SignUp() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-
+    // Hier wird die Eingabe validiert
     function validateAll(username, email, password) {
         const errors = {};
 
@@ -61,13 +65,13 @@ export default function SignUp() {
             errors.password = "Please enter a password";
         } else if (password.length < 8) {
             errors.password = "Password must be at least 8 characters long";
-        } else if (!/^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[a-zA-Z]).{8,}$/.test(password)) {
-            errors.password = "Password must contain at least one uppercase letter, one lowercase letter and one number";
+        } else if (!/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(password)) {
+            errors.password = "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character";
         }
 
         return errors;
     }
-
+    //Hier wird der Login abgeschickt
     const handleSubmit = (event) =>{
         event.preventDefault();
         const errors = validateAll(username, email, password);

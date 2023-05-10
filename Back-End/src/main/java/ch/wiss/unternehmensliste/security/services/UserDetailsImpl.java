@@ -11,6 +11,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+/**
+ * Das UserDetailsImpl ist eine Implementierung des UserDetails Interfaces.
+ * Es wird verwendet, um die Datenbankabfragen für die User-Objekte zu definieren.
+ */
 public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
 

@@ -6,20 +6,75 @@
   <component name="ChangeListManager">
     <list default="true" id="29e2025c-b41f-4160-ac1a-bcfdb3c95852" name="Changes" comment="Bugs fixed,&#10;PUT zu PATCH geändert,&#10;Jest Tests angefangen&#10;Rechte und Anzeigen überarbeitet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/ContactController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/JobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/JobController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbedeleted/CompanyCouldNotBeDeletedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbedeleted/CompanyCouldNotBeDeletedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbedeleted/ContactCouldNotBeDeletedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbedeleted/ContactCouldNotBeDeletedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbedeleted/JobCouldNotBeDeletedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbedeleted/JobCouldNotBeDeletedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbesaved/CompanyCouldNotBeSavedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbesaved/CompanyCouldNotBeSavedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbesaved/ContactCouldNotBeSavedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbesaved/ContactCouldNotBeSavedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbesaved/JobCouldNotBeSavedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbesaved/JobCouldNotBeSavedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbeupdated/CompanyCouldNotBeUpdatedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbeupdated/CompanyCouldNotBeUpdatedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbeupdated/ContactCouldNotBeUpdatedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbeupdated/ContactCouldNotBeUpdatedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbeupdated/JobCouldNotBeUpdatedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/couldnotbeupdated/JobCouldNotBeUpdatedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/load/CompanyLoadException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/load/CompanyLoadException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/load/ContactLoadException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/load/ContactLoadException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/load/JobLoadException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/load/JobLoadException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/notfound/CompanyNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/notfound/CompanyNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/notfound/ContactNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/notfound/ContactNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/notfound/JobNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/exception/notfound/JobNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/model/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/model/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/model/Contact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/model/JobApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/model/JobApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/payload/request/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/payload/request/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/payload/request/SignupRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/payload/request/SignupRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/payload/response/JwtResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/payload/response/JwtResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/payload/response/MessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/payload/response/MessageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/repository/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/repository/CompanyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/repository/ContactRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/repository/ContactRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/repository/JobApplicationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/repository/JobApplicationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/repository/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/security/jwt/AuthEntryPointJwt.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/security/jwt/AuthEntryPointJwt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/security/jwt/AuthTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/security/jwt/AuthTokenFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/security/jwt/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/security/jwt/JwtUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/security/services/UserDetailsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/security/services/UserDetailsImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/security/services/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/security/services/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/service/DataBaseLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/ch/wiss/unternehmensliste/service/DataBaseLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/jest.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/Appbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/Appbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/Layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/api/auth/auth.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/api/auth/auth.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/api/auth/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/api/auth/user.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/create/FormCreateDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/create/FormCreateDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/dashboard/account.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/dashboard/account.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/dashboard/accountsettings.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/dashboard/accountsettings.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/src/components/dashboard/adminoptions.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/dashboard/adminoptions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/dashboard/companyoptions.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/dashboard/companyoptions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/delete/CompanyDelete.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/delete/CompanyDelete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/delete/CompanyListingDelete.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/delete/CompanyListingDelete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/delete/ContactDelete.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/delete/ContactDelete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/delete/JobDelete.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/delete/JobDelete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/delete/UserDelete.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/delete/UserDelete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/home/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/src/components/list/CompanyContactList.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/list/CompanyContactList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/list/CompanyList.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/list/CompanyList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/list/ContactList.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/list/ContactList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/src/components/list/Firmenliste.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/list/Firmenliste.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/src/components/list/JobList.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/list/JobList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/src/components/tests/companycontact/CompanyUpdate.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/dashboard/companyoptions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/src/components/tests/companycontact/Companycontact.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/src/components/tests/job/Job.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/delete/CompanyListingDelete.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/src/components/tests/job/JobCreate.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/src/components/tests/job/JobDelete.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/src/components/tests/user/User.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/tests/user/User.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/src/components/tests/user/UserDelete.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/signin/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/signin/SignIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/signup/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/signup/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateCompanyDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateCompanyDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateContactDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateContactDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/components/update/FormUpdateDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,33 +105,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "alex__branch",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "C:/Users/Alex/IdeaProjects/Fullstack-Application-Spring-Boot-React/Front-End/node_modules/react-scripts",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "spring.configuration.checksum": "0c9b5f6dac3b6dd3a5ce563e6612925b",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;C:/Users/Alex/IdeaProjects/Fullstack-Application-Spring-Boot-React/Front-End/node_modules/react-scripts&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;0c9b5f6dac3b6dd3a5ce563e6612925b&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Spring Boot.UnternehmenslisteApplication">
     <configuration name="AccountDetails" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
@@ -166,6 +221,8 @@
       <workItem from="1683281016318" duration="5663000" />
       <workItem from="1683562344335" duration="3633000" />
       <workItem from="1683632334037" duration="24357000" />
+      <workItem from="1683701105148" duration="7145000" />
+      <workItem from="1683708273574" duration="2193000" />
     </task>
     <task id="LOCAL-00001" summary="Firmenliste.js erstellt und hinzugefügt&#10;adminoptions.js erstellt und hinzugefügt">
       <created>1683287957839</created>
@@ -193,6 +250,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Firmenliste.js erstellt und hinzugefügt&#10;adminoptions.js erstellt und hinzugefügt" />

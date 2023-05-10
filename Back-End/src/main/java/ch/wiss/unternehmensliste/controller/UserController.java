@@ -17,17 +17,34 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     @Autowired
     UserRepository userRepository;
+
+    /**
+     * Gibt den öffentlichen Inhalt zurück.
+     *
+     * @return öffentlicher Inhalt
+     */
     @GetMapping("/all")
     public String allAccess() {
         return "Public Content.";
     }
 
+    /**
+     * Gibt die Kontodetails des authentifizierten Benutzers zurück.
+     *
+     * @param userDetails Benutzerdetails
+     * @return Kontodetails des Benutzers
+     */
     @GetMapping("/account")
     @PreAuthorize("hasRole('USER') or hasRole('COMPANY') or hasRole('ADMIN')")
     public ResponseEntity<?> getAccountDetails(@AuthenticationPrincipal UserDetails userDetails) {
         return ResponseEntity.ok(userDetails);
     }
 
+    /**
+     * Gibt alle Benutzer zurück.
+     *
+     * @return alle Benutzer
+     */
     @GetMapping("/users")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> getUsers() {
@@ -40,6 +57,12 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
+    /**
+     * Löscht einen Benutzer anhand der ID.
+     *
+     * @param id Benutzer-ID
+     * @return erfolgreiche Löschungsnachricht
+     */
     @DeleteMapping("/user/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> deleteUser(@PathVariable("id") long id) {
@@ -51,6 +74,13 @@ public class UserController {
         return ResponseEntity.ok(new MessageResponse("User deleted successfully!"));
     }
 
+    /**
+     * Aktualisiert einen Benutzer anhand von Benutzername oder E-Mail-Adresse.
+     *
+     * @param username Benutzername
+     * @param email E-Mail-Adresse
+     * @return erfolgreiche Aktualisierungsnachricht
+     */
     @PatchMapping("/user")
     public ResponseEntity<?> updateUser(@RequestParam(required = false) String username, @RequestParam(required = false) String email) {
         try {
@@ -71,19 +101,31 @@ public class UserController {
         return ResponseEntity.ok(new MessageResponse("User updated successfully!"));
     }
 
-
+    /**
+     * Gibt den User Inhalt zurück.
+     *
+     * @return user Inhalt
+     */
     @GetMapping("/user")
     @PreAuthorize("hasRole('USER') or hasRole('COMPANY') or hasRole('ADMIN')")
     public String userAccess() {
         return "User Content.";
     }
-
+    /**
+     * Gibt den Firmen Inhalt zurück.
+     *
+     * @return firmen Inhalt
+     */
     @GetMapping("/company")
     @PreAuthorize("hasRole('COMPANY')")
     public String companyAccess() {
         return "Company Content.";
     }
-
+    /**
+     * Gibt den Admin Inhalt zurück.
+     *
+     * @return admin Inhalt
+     */
     @GetMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
     public String adminAccess() {

@@ -14,6 +14,21 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import AuthService from "../api/auth/auth.service";
 import FormUpdateContactDialog from "../update/FormUpdateContactDialog";
 
+/**
+ * Hier werden die Firmen und die Kontakte zusammen in ein JSX-Element gerendert
+ * um es zu vereinfachen diese übersichtlich zu laden
+ * @param id - Die ID der Firma
+ * @param companyName - Der Name der Firma
+ * @param website - Die Webseite der Firma
+ * @param canton - Der Kanton, in dem die Firma ansässig ist
+ * @param contactName - Der Name des Ansprechpartners der Firma
+ * @param gender - Das Geschlecht des Ansprechpartners der Firma
+ * @param tel - Die Telefonnummer des Ansprechpartners der Firma
+ * @param email - Die E-Mail-Adresse des Ansprechpartners der Firma
+ * @param contactId - Die ID des Ansprechpartners der Firma
+ * @returns {JSX.Element} - Eine Tabelle der vorhandenen Firmen und vorhandenen Firmenkontakten
+ * @constructor
+ */
 export const CompanyContactList = ({ id, companyName, website, canton, contactName, gender, tel, email, contactId }) => {
     const [currentUser, setCurrentUser] = useState(undefined);
     const [showAdminOptions, setShowAdminOptions] = useState(false);
@@ -27,7 +42,7 @@ export const CompanyContactList = ({ id, companyName, website, canton, contactNa
             setShowCompanyOptions(user.roles.includes("ROLE_COMPANY"));
         }
     }, []);
-
+    // Hiermit wird eine Tabelle ausgebreitet
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };

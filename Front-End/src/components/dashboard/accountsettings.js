@@ -7,6 +7,13 @@ import Paper from "@mui/material/Paper";
 import UserDelete from "../delete/UserDelete";
 import Typography from "@mui/material/Typography";
 
+/**
+ * Diese Komponente stellt die Benutzereinstellungen dar, einschließlich der Anzeige der Benutzerdaten und der Möglichkeit, diese zu bearbeiten.
+ * Der Benutzer kann auch seinen Account löschen.
+ *
+ * @return {JSX.Element} - Das JSX-Element für die Benutzereinstellungen.
+ * @constructor
+ */
 
 export const AccountSettings = () =>{
     const [un, setUn] = useState('');
@@ -29,7 +36,12 @@ export const AccountSettings = () =>{
             .catch((error) => console.log(error));
 
     }, []);
-
+    /**
+     * Funktion zum Aktualisieren der Benutzerdaten.
+     * @param {number} id - Die ID des Benutzers.
+     * @param {string} username - Der neue Benutzername.
+     * @param {string} email - Die neue E-Mail-Adresse.
+     */
     function handleUpdate(id, username, email){
         fetch(`http://localhost:8080/api/test/
         user?id=${id}&username?=${username}&email?=${email}`, {
@@ -48,7 +60,9 @@ export const AccountSettings = () =>{
         return console.log("Success")
     }
 
-
+    /**
+     * Hier werden die Benutzerdaten geladen und angezeigt, um eine Bearbeitung zu ermöglichen.
+     */
     return (
         <>
             {userData ? (

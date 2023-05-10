@@ -2,7 +2,7 @@ package ch.wiss.unternehmensliste.exception.notfound;
 
 public class JobNotFoundException extends RuntimeException {
     /**
-     * Handles an Exception that accuses while searching a Job with the ID
+     * Diese Exception wird geworfen, wenn ein Job nicht gefunden werden kann
      *
      * @param jobId
      *

@@ -10,7 +10,10 @@ import Firmenliste from "./components/list/Firmenliste";
 import AdminOptions from "./components/dashboard/adminoptions";
 import AccountSettings from "./components/dashboard/accountsettings";
 import Companyoptions from "./components/dashboard/companyoptions";
-
+/*
+ Diese Funktion ist einer der Hauptfunktionen des Frontends.
+ Sie ist für die Navigation zwischen den einzelnen Seiten zuständig.
+ */
 export default function App() {
   return (
       <div className="App">

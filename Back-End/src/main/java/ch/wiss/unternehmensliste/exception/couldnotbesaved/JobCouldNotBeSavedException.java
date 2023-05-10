@@ -2,7 +2,7 @@ package ch.wiss.unternehmensliste.exception.couldnotbesaved;
 
 public class JobCouldNotBeSavedException extends RuntimeException{
     /**
-     * Handles an Exception that accuses while saving a Job
+     * Diese Exception wird geworfen, wenn ein Job nicht gespeichert werden kann
      *
      * @param jobName
      *
@@ -13,7 +13,7 @@ public class JobCouldNotBeSavedException extends RuntimeException{
     }
 
     /**
-     * Handles an Exception that accuses while saving a Job
+     * Diese Exception wird geworfen, wenn ein Job nicht gespeichert werden kann
      *
      *
      * @return Exception Message

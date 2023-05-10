@@ -10,7 +10,15 @@ import EditIcon from "@mui/icons-material/Edit";
 import {IconButton} from "@mui/material";
 import {getCurrentUserToken} from "../api/auth/auth.service";
 
-
+/**
+ * Hier wird das Dialog-Fenster für das Updaten einer Firma erstellt.
+ * @param id - ID der Firma
+ * @param companyName - Name der Firma
+ * @param website - Website der Firma
+ * @param canton - Kanton der Firma
+ * @returns {JSX.Element} - Dialog-Fenster für das Updaten einer Firma
+ * @constructor
+ */
 export const FormUpdateCompanyDialog = ({id, companyName, website, canton}) =>{
     const [open, setOpen] = useState(false);
     const [error, setError] = useState(null);

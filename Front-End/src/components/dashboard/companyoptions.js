@@ -8,7 +8,13 @@ import TableBody from "@mui/material/TableBody";
 import Table from "@mui/material/Table";
 import CompanyListingDelete from "../delete/CompanyListingDelete";
 
-const AdminOptions = () => {
+/**
+ * Zeigt eine Tabelle mit allen Firmen an.
+ * Wobei man per Knopfdruck eine Firma sperren kann um jegliche Einträge zu löschen.
+ * @returns {JSX.Element} - Eine Tabelle der Firmen mit zusätzliche Optionen
+ * @constructor
+ */
+const CompanyOptions = () => {
     const navigate = useNavigate();
     const [currentUser, setCurrentUser] = useState(undefined);
     const [companyData, setCompanyData] = useState([]);
@@ -59,4 +65,4 @@ const AdminOptions = () => {
     );
 };
 
-export default AdminOptions;
+export default CompanyOptions;

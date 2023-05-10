@@ -7,6 +7,12 @@ import {IconButton} from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import {getCurrentUserToken} from "../api/auth/auth.service";
 
+/**
+ * Hier kann per ID ein JobEintrag gelöscht werden
+ * @param id - Die ID des Jobeintrages
+ * @returns {JSX.Element} - Ein IconButton zur löschung
+ * @constructor
+ */
 export const JobDelete = ({id}) => {
 
     const [open, setOpen] = React.useState(false);

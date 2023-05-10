@@ -2,7 +2,7 @@ package ch.wiss.unternehmensliste.exception.notfound;
 
 public class ContactNotFoundException extends RuntimeException {
     /**
-     * Handles an Exception that accuses while searching an Contact with the ID
+     * Diese Exception wird geworfen, wenn ein Kontakt nicht gefunden werden kann
      *
      * @param contactId
      *
@@ -12,7 +12,7 @@ public class ContactNotFoundException extends RuntimeException {
         super("The contact with id '" + contactId + "' could not be found.");
     }
     /**
-     * Handles an Exception that accuses while searching an Contact with the Email
+     * Diese Exception wird geworfen, wenn ein Kontakt nicht gefunden werden kann
      *
      * @param email
      *

@@ -8,6 +8,12 @@ import TableRow from '@mui/material/TableRow';
 import FormUpdateCompanyDialog from "../update/FormUpdateCompanyDialog";
 import AuthService from "../api/auth/auth.service";
 
+/**
+ * Hier wird eine Tabellen-Liste mit den vorhandenen Firmen geladen
+ * Je nach Rollen werden verschiedene zusatz Optionen angezeigt
+ * @returns {JSX.Element} - Eine Tabelle mit den Firmen
+ * @constructor
+ */
 export const Firmenliste = () => {
     const [currentUser, setCurrentUser] = useState(undefined);
     const [showAdminOptions, setShowAdminOptions] = useState(false);

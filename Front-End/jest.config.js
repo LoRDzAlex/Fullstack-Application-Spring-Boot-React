@@ -1,3 +1,7 @@
+/*
+  Hier können wir die Konfiguration für Jest festlegen.
+ */
+
 module.exports = {
     testEnvironment: 'jsdom',
     transformIgnorePatterns: [

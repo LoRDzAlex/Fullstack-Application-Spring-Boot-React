@@ -16,6 +16,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+/**
+ Diese Klasse konfiguriert die Web-Sicherheit für die Anwendung.
+ */
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig
@@ -55,12 +58,21 @@ public class WebSecurityConfig
 
             };
 
+    /**
+
+     Erstellt eine Instanz von AuthTokenFilter.
+     @return Instanz von AuthTokenFilter.
+     */
     @Bean
     public AuthTokenFilter authenticationJwtTokenFilter()
     {
         return new AuthTokenFilter();
     }
+    /**
 
+     Erstellt eine Instanz von DaoAuthenticationProvider und konfiguriert die Einstellungen.
+     @return Instanz von DaoAuthenticationProvider.
+     */
     @Bean
     public DaoAuthenticationProvider authenticationProvider()
     {
@@ -69,19 +81,37 @@ public class WebSecurityConfig
         authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
     }
+    /**
 
+     Erstellt eine Instanz von AuthenticationManager.
+     @param authConfig Die Konfiguration für die Authentifizierung.
+     @return Instanz von AuthenticationManager.
+     @throws Exception Wenn die Konfiguration fehlschlägt.
+     */
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception
     {
         return authConfig.getAuthenticationManager();
     }
 
+    /**
+
+     Erstellt eine Instanz von PasswordEncoder.
+     @return Instanz von PasswordEncoder.
+     */
     @Bean
     public PasswordEncoder passwordEncoder()
     {
         return new BCryptPasswordEncoder();
     }
 
+    /**
+
+     Konfiguriert die HTTP-Sicherheitsfilterkette.
+     @param http HttpSecurity-Objekt, das die Http-Sicherheitskonfiguration speichert.
+     @return Eine Instanz von SecurityFilterChain.
+     @throws Exception Wenn das Erstellen der SecurityFilterChain fehlschlägt.
+     */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception
     {
