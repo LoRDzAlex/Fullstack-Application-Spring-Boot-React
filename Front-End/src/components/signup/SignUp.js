@@ -88,6 +88,8 @@ export default function SignUp() {
             if (res.ok) {
                 console.log("Success")
                 navigate("/signin")
+            } else if (res.status === 409) {
+                alert("Username or email already exists"); // Setze die Fehlermeldung für den Fall, dass Benutzername oder E-Mail bereits vorhanden sind
             } else {
                 console.log("Error")
             }
