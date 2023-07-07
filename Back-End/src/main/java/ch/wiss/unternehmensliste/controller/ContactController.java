@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/contact")
-@CrossOrigin("*")
+@CrossOrigin("localhost:3000")
 public class ContactController {
 
     /**

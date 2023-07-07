@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 
 @Controller
 @RequestMapping("/job")
-@CrossOrigin("*")
+@CrossOrigin("localhost:3000")
 public class JobController {
 
     /**

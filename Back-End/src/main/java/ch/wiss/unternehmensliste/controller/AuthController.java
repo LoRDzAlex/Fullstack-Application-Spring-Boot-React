@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
 /**
  Der AuthController behandelt die Authentifizierung von Benutzern sowie die Registrierung neuer Benutzer
  */
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "localhost:3000", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
 @Transactional
